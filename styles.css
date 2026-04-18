@@ -1097,6 +1097,35 @@ img {
     justify-content: center;
 }
 
+/* Card image color variants (no image fallbacks) */
+.wp-card-img-accent {
+    background: linear-gradient(135deg, #1a1a20 0%, #2a2520 50%, #1a1a20 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-card-img-strategy {
+    background: linear-gradient(135deg, #0C0C0E 0%, #0f1a2a 50%, #0C0C0E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-card-img-copy {
+    background: linear-gradient(135deg, #0C0C0E 0%, #1a0f2a 50%, #0C0C0E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-card-img-deck {
+    background: linear-gradient(135deg, #0C0C0E 0%, #0a2a1a 50%, #0C0C0E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 900px) {
     .wp-grid {
         grid-template-columns: 1fr 1fr;
