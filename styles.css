@@ -1105,6 +1105,72 @@ img {
     justify-content: center;
 }
 
+/* Brand logo in case studies */
+.case-brand-img {
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.case-brand-img img {
+    max-height: 80px;
+    max-width: 280px;
+    object-fit: contain;
+}
+
+/* Case study image gallery */
+.case-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.case-gallery-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.case-gallery-item:hover {
+    border-color: var(--accent);
+}
+
+.case-gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.case-gallery-item span {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    background: var(--bg-elevated);
+}
+
+@media (max-width: 600px) {
+    .case-gallery {
+        grid-template-columns: 1fr;
+    }
+    .case-gallery-item img {
+        height: 220px;
+    }
+}
+
 .wp-card-img-strategy {
     background: linear-gradient(135deg, #0C0C0E 0%, #0f1a2a 50%, #0C0C0E 100%);
     display: flex;
