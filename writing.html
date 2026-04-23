@@ -8,6 +8,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Teaser button styles - scoped to avoid conflicts with existing site CSS */
+        .teaser-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .teaser-text {
+            flex: 1 1 520px;
+            min-width: 0;
+        }
+        .teaser-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1a1a;
+            color: #fff !important;
+            padding: 1rem 2rem;
+            font-family: 'Instrument Sans', system-ui, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            border-radius: 4px;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+        .teaser-btn:hover {
+            background: #000;
+            transform: translateY(-1px);
+        }
+        .teaser-btn-arrow {
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .teaser-btn:hover .teaser-btn-arrow {
+            transform: translateX(3px);
+        }
+        @media (max-width: 768px) {
+            .teaser-row { gap: 1.5rem; }
+            .teaser-btn { width: 100%; justify-content: center; }
+        }
+    </style>
 </head>
 <body>
     <nav class="nav" id="nav">
@@ -35,13 +81,16 @@
     <!-- ===== WHITEPAPERS ===== -->
     <section class="writing-section">
         <div class="writing-section-inner">
-            <div class="writing-category-header">
-                <div class="case-study-tag">B2B Thought Leadership</div>
-                <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:400;margin-top:0.5rem">Whitepapers &amp; Case Study</h2>
-                <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.5rem;max-width:650px">6 long-form pieces written for ChatPandas (subsidiary of LiveChat Ltd) on customer experience, contact center strategy, live chat, and support operations &mdash; including one customer-story case study.</p>
-            </div>
-            <div style="margin-top:2rem">
-                <a href="whitepapers/" class="wp-read-more" style="font-size:1rem;display:inline-flex;align-items:center;gap:0.5rem">View all whitepapers &amp; case study &rarr;</a>
+            <div class="teaser-row">
+                <div class="teaser-text">
+                    <div class="case-study-tag">B2B Thought Leadership</div>
+                    <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:400;margin-top:0.5rem">Whitepapers &amp; Case Study</h2>
+                    <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.5rem;max-width:650px">6 long-form pieces written for ChatPandas (subsidiary of LiveChat Ltd) on customer experience, contact center strategy, live chat, and support operations, including one customer-story case study.</p>
+                </div>
+                <a href="whitepapers/" class="teaser-btn">
+                    View all whitepapers
+                    <span class="teaser-btn-arrow">&rarr;</span>
+                </a>
             </div>
         </div>
     </section>
@@ -49,13 +98,16 @@
     <!-- ===== STRATEGY & ANALYSIS ===== -->
     <section class="writing-section">
         <div class="writing-section-inner">
-            <div class="writing-category-header">
-                <div class="case-study-tag">Strategy &amp; Analysis</div>
-                <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:400;margin-top:0.5rem">Strategic Documents</h2>
-                <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.5rem;max-width:650px">12 content strategy and workflow architecture documents produced across a 7-website portfolio, spanning competitor analysis, programmatic SEO architecture, keyword research, PPC blueprints, affiliate program strategy, and the 16-workflow AI content automation stack that replaced $1,500/month in vendor tools.</p>
-            </div>
-            <div style="margin-top:2rem">
-                <a href="strategy/" class="wp-read-more" style="font-size:1rem;display:inline-flex;align-items:center;gap:0.5rem">View all strategic documents &rarr;</a>
+            <div class="teaser-row">
+                <div class="teaser-text">
+                    <div class="case-study-tag">Strategy &amp; Analysis</div>
+                    <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:400;margin-top:0.5rem">Strategic Documents</h2>
+                    <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.5rem;max-width:650px">12 content strategy and workflow architecture documents produced across a 7-website portfolio, spanning competitor analysis, programmatic SEO architecture, keyword research, PPC blueprints, affiliate program strategy, and the 16-workflow AI content automation stack that replaced $1,500/month in vendor tools.</p>
+                </div>
+                <a href="strategy/" class="teaser-btn">
+                    View all documents
+                    <span class="teaser-btn-arrow">&rarr;</span>
+                </a>
             </div>
         </div>
     </section>
