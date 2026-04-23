@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Documents | Nimra Shakil</title>
+<meta name="description" content="Twelve content strategy and workflow architecture documents produced across a seven-website portfolio. Competitor analysis, programmatic SEO, keyword research, PPC blueprints, and content automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* ----- Typography & base ----- */
+:root {
+  --ink: #0F0F0F;
+  --ink-soft: #1F1F1F;
+  --muted: #666666;
+  --muted-soft: #8A8A8A;
+  --line: #E0E0E0;
+  --line-soft: #EEEEEE;
+  --bg: #FFFFFF;
+  --bg-soft: #FAFAFA;
+  --badge-bg: #F2F2F2;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--ink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ----- Sticky brand header ----- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 48px;
+}
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.brand {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.brand-sub {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.back-link {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.back-link:hover { color: var(--ink); text-decoration: none; }
+
+/* ----- Scroll-spy section tabs ----- */
+.section-nav {
+  position: sticky;
+  top: 65px;
+  z-index: 99;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 48px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.section-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.section-nav a {
+  color: var(--muted);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.section-nav a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+.section-nav a.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ----- Hero ----- */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 48px 56px;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--sans);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+.hero-desc {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 720px;
+}
+
+/* ----- Featured deck ----- */
+.featured-deck {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  padding: 0 48px;
+}
+.featured-deck-inner {
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.featured-deck-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.featured-deck h2 {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.featured-deck p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  max-width: 640px;
+  margin-bottom: 12px;
+}
+.featured-deck-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.featured-deck-action {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+.btn-primary {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--ink);
+  color: #FFF;
+  padding: 14px 24px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: #000; color: #FFF; text-decoration: none; }
+.btn-secondary {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--ink);
+  padding: 13px 24px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-secondary:hover { background: var(--ink); color: #FFF; text-decoration: none; }
+
+/* ----- Section heading ----- */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 64px;
+  scroll-margin-top: 130px;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-bottom: 28px;
+  gap: 24px;
+}
+.section-header h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.section-header .section-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* ----- Doc cards grid ----- */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+.doc-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, transform 0.15s;
+  min-height: 260px;
+}
+.doc-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.doc-badge {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  background: var(--badge-bg);
+  padding: 5px 9px;
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+.doc-badge.medium { color: var(--ink-soft); }
+.doc-badge.light  { color: var(--muted); }
+.doc-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+.doc-desc {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  flex-grow: 1;
+  margin-bottom: 18px;
+}
+.doc-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  margin-bottom: 14px;
+}
+.doc-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.doc-link:hover {
+  text-decoration: underline;
+}
+
+/* ----- Footer ----- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 48px;
+  margin-top: 48px;
+  background: var(--bg-soft);
+}
+.site-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .site-header { padding: 16px 24px; }
+  .section-nav { padding: 10px 24px; }
+  .section-nav-inner { gap: 20px; font-size: 11px; }
+  .hero { padding: 48px 24px 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero-desc { font-size: 17px; }
+  .featured-deck { padding: 0 24px; margin-bottom: 48px; }
+  .featured-deck-inner {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+  .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
+  .section-header h2 { font-size: 20px; }
+  .doc-grid { grid-template-columns: 1fr; gap: 18px; }
+  .doc-card { padding: 24px; min-height: auto; }
+  .site-footer { padding: 36px 24px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div>
+      <div class="brand">Nimra Shakil</div>
+      <div class="brand-sub">Strategic Documents</div>
+    </div>
+    <a class="back-link" href="../writing.html">← Writing</a>
+  </div>
+</header>
+
+<nav class="section-nav" id="sectionNav">
+  <div class="section-nav-inner">
+    <a href="#minimal">Minimal</a>
+    <a href="#parkingmd">ParkingMD</a>
+    <a href="#wellnesswag">Wellness Wag</a>
+    <a href="#leafyrx">LeafyRX</a>
+    <a href="#leafy-rewards">Leafy Rewards</a>
+    <a href="#trt">TRT</a>
+    <a href="#operations">Operations</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Strategy &amp; Analysis</div>
+  <h1>Strategic documents across a seven-website portfolio.</h1>
+  <p class="hero-desc">
+    Twelve content strategy and workflow architecture documents produced
+    across a seven-website portfolio, spanning competitor analysis,
+    programmatic SEO architecture, keyword research, PPC blueprints,
+    affiliate program strategy, and the sixteen-workflow AI content
+    automation stack that replaced a $1,500-per-month vendor toolchain.
+  </p>
+</section>
+
+<!-- Featured: Portfolio Overview Deck -->
+<div class="featured-deck">
+  <div class="featured-deck-inner">
+    <div>
+      <div class="featured-deck-label">Portfolio Overview Deck</div>
+      <h2>SEO Portfolio Deck</h2>
+      <p>
+        A 10-page visual summary of SEO work across the seven-website
+        portfolio, covering traffic, keywords, site health, and workflow
+        automation. Includes Semrush screenshots and case-study data for
+        ParkingMD, LeafyMate, Minimal, WellnessWag, and LeafyDoc.
+      </p>
+      <div class="featured-deck-meta">7 sites  ·  315K+ combined monthly visits  ·  10 pages</div>
+    </div>
+    <div class="featured-deck-action">
+      <a class="btn-primary" href="pdfs/nimra-shakil-seo-portfolio.pdf" target="_blank" rel="noopener">View deck</a>
+      <a class="btn-secondary" href="pdfs/nimra-shakil-seo-portfolio.pdf" download>Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<!-- Minimal -->
+<section class="section" id="minimal">
+  <div class="section-header">
+    <h2>Minimal</h2>
+    <span class="section-count">1 document</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Competitor Analysis</span>
+      <p class="doc-eyebrow">Minimal</p>
+      <h3 class="doc-title">Semaglutide Page Competitor Audit</h3>
+      <p class="doc-desc">
+        Competitive teardown of the Semaglutide page against Found,
+        Calibrate, Sequence, and Heally. Eight recommendation areas
+        spanning clinical evidence, testimonials, interactive tools, and
+        internal linking.
+      </p>
+      <div class="doc-meta">+336% site visits  ·  5 pages</div>
+      <a class="doc-link" href="pdfs/minimal-semaglutide-competitor-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ParkingMD -->
+<section class="section" id="parkingmd">
+  <div class="section-header">
+    <h2>ParkingMD</h2>
+    <span class="section-count">2 documents</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">ParkingMD</p>
+      <h3 class="doc-title">Blog Topics and Competitor Analysis</h3>
+      <p class="doc-desc">
+        Ten candidate topics evaluated against a per-topic competitor
+        audit of the five category actors, resolving into a hub-and-spoke
+        content architecture with nine production-ready outlines.
+      </p>
+      <div class="doc-meta">10 topics evaluated  ·  5 pages</div>
+      <a class="doc-link" href="pdfs/parkingmd-blog-topics-competitor-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge">Paid Search</span>
+      <p class="doc-eyebrow">ParkingMD</p>
+      <h3 class="doc-title">Google Ads Campaign Structure</h3>
+      <p class="doc-desc">
+        Google Ads Search blueprint organised around four intent-segmented
+        ad groups, eleven rotating headlines with dynamic keyword
+        insertion, and a Manual CPC to Target CPA $70 bidding progression.
+      </p>
+      <div class="doc-meta">4 ad groups  ·  $70 target CPA  ·  6 pages</div>
+      <a class="doc-link" href="pdfs/parkingmd-campaign-structure.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- Wellness Wag -->
+<section class="section" id="wellnesswag">
+  <div class="section-header">
+    <h2>Wellness Wag</h2>
+    <span class="section-count">3 documents</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge medium">Content Audit</span>
+      <p class="doc-eyebrow">Wellness Wag</p>
+      <h3 class="doc-title">Content Analysis and Strategic Summary</h3>
+      <p class="doc-desc">
+        Portfolio-level audit of 1,145 published posts across 20 thematic
+        clusters, mapping the 6x competitive volume lead and sequencing a
+        three-phase optimisation roadmap against the ESA and pet care
+        vertical.
+      </p>
+      <div class="doc-meta">1,145 posts audited  ·  7 pages</div>
+      <a class="doc-link" href="pdfs/ww-content-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge">Program Strategy</span>
+      <p class="doc-eyebrow">Wellness Wag</p>
+      <h3 class="doc-title">Affiliate Program Growth Plan</h3>
+      <p class="doc-desc">
+        Growth plan synthesised from a 35-page cross-functional brainstorm
+        spanning four contributors and four working channels, resolved
+        into a three-phase execution roadmap organised around the
+        enablement-over-recruitment insight.
+      </p>
+      <div class="doc-meta">30+ ideas synthesised  ·  7 pages</div>
+      <a class="doc-link" href="pdfs/ww-affiliate-program-growth-plan.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge light">Enablement Strategy</span>
+      <p class="doc-eyebrow">Wellness Wag + Minimal</p>
+      <h3 class="doc-title">Affiliate Training and Development</h3>
+      <p class="doc-desc">
+        Cross-brand enablement layer for the broader affiliate program
+        strategy, built on a three-by-three-by-three framework of formats,
+        topic areas, and KPI dimensions with partner-led content sourcing.
+      </p>
+      <div class="doc-meta">Cross-brand framework  ·  3 pages</div>
+      <a class="doc-link" href="pdfs/affiliate-training-workshops.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- LeafyRX -->
+<section class="section" id="leafyrx">
+  <div class="section-header">
+    <h2>LeafyRX</h2>
+    <span class="section-count">1 document</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">LeafyRX</p>
+      <h3 class="doc-title">Patient Education Guide Architecture</h3>
+      <p class="doc-desc">
+        YMYL-grade content architecture for a medical cannabis patient
+        education guide. Fourteen sections sequenced against the
+        post-certification patient journey, anchored by more than twenty
+        peer-reviewed clinical citations.
+      </p>
+      <div class="doc-meta">14 sections  ·  20+ citations  ·  14 pages</div>
+      <a class="doc-link" href="pdfs/leafyrx-patient-education-guide.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- Leafy Rewards -->
+<section class="section" id="leafy-rewards">
+  <div class="section-header">
+    <h2>Leafy Rewards</h2>
+    <span class="section-count">2 documents</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Keyword Research</span>
+      <p class="doc-eyebrow">Leafy Rewards</p>
+      <h3 class="doc-title">Keyword Gap Analysis</h3>
+      <p class="doc-desc">
+        Competitive keyword gap analysis against Weedmaps, Leafly, and
+        PotGuide. 14,804 keywords analysed across nine thematic clusters
+        with topical opportunity scoring and priority grouping.
+      </p>
+      <div class="doc-meta">14,804 keywords  ·  9 clusters  ·  4 pages</div>
+      <a class="doc-link" href="pdfs/keyword-gap-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Programmatic SEO</span>
+      <p class="doc-eyebrow">Leafy Rewards</p>
+      <h3 class="doc-title">Cannabis Legalization Pages Architecture</h3>
+      <p class="doc-desc">
+        Three-tier programmatic SEO architecture interlocking a national
+        summary hub, fifty state-specific pages, and condition-specific
+        intersections against the location-qualified search behaviour the
+        category rewards.
+      </p>
+      <div class="doc-meta">3 tiers  ·  50 states  ·  7 pages</div>
+      <a class="doc-link" href="pdfs/cannabis-legalization-pages-architecture.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- TRT -->
+<section class="section" id="trt">
+  <div class="section-header">
+    <h2>TRT Telehealth</h2>
+    <span class="section-count">1 document</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">TRT Telehealth</p>
+      <h3 class="doc-title">TRT Blog Series Outline</h3>
+      <p class="doc-desc">
+        Two-part content series architecture pairing a four-pillar
+        educational foundation track with a first-person weekly journey
+        format. Designed to occupy the middle ground between clinical
+        explainers and forum anecdotes.
+      </p>
+      <div class="doc-meta">2 parts  ·  4 pillar pieces  ·  5 pages</div>
+      <a class="doc-link" href="pdfs/trt-blog-series-outline.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<!-- Cross Even Operations -->
+<section class="section" id="operations">
+  <div class="section-header">
+    <h2>Cross Even Operations</h2>
+    <span class="section-count">2 documents</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Workflow Architecture</span>
+      <p class="doc-eyebrow">Cross Even Operations</p>
+      <h3 class="doc-title">AI Content Production System</h3>
+      <p class="doc-desc">
+        Custom n8n-powered content automation architecture replacing a
+        $1,500-per-month vendor stack. Sixteen workflows, seven
+        integrations, and a five-stage human approval layer across seven
+        websites, delivering a 75% cost reduction.
+      </p>
+      <div class="doc-meta">16 workflows  ·  75% cost reduction  ·  11 pages</div>
+      <a class="doc-link" href="pdfs/ai-content-production.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge light">Development Operations</span>
+      <p class="doc-eyebrow">Cross Even Operations</p>
+      <h3 class="doc-title">WordPress Development Workflow Standards</h3>
+      <p class="doc-desc">
+        Cross-functional operations standard resolving six recurring
+        WordPress development issues across a seven-site portfolio into
+        reproducible migration and code-location conventions.
+      </p>
+      <div class="doc-meta">6 issue areas  ·  7 sites  ·  4 pages</div>
+      <a class="doc-link" href="pdfs/wp-development-workflow-standards.pdf" target="_blank" rel="noopener">Read document →</a>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <strong>Nimra Shakil</strong>  ·  SEO Content Strategist  ·  Lahore, Pakistan
+    </div>
+    <div>
+      <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:nimra.shakil@gmail.com">Email</a>
+      &nbsp;·&nbsp;
+      <a href="../writing.html">Back to Writing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll-spy for section navigation
+(function() {
+  const navLinks = document.querySelectorAll('.section-nav a');
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { link, section: document.getElementById(id) };
+  }).filter(item => item.section);
+
+  function updateActive() {
+    const scrollPos = window.scrollY + 200;
+    let currentActive = sections[0];
+    for (const item of sections) {
+      if (item.section.offsetTop <= scrollPos) {
+        currentActive = item;
+      }
+    }
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (currentActive) currentActive.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
+
+</body>
+</html>
