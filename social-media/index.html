@@ -112,6 +112,30 @@ a:hover { text-decoration: underline; }
   display: block;
 }
 
+/* Grid-type carousel (IG profile grid composition) - slides touch */
+.carousel-row-strip.is-grid {
+  gap: 0;
+  scroll-snap-type: none;
+}
+.carousel-row-strip.is-grid .carousel-row-slide {
+  border-right: 0;
+}
+.carousel-row-strip.is-grid .carousel-row-slide:last-child {
+  border-right: 1px solid var(--line);
+}
+.carousel-row-strip.is-grid .carousel-row-slide:hover {
+  transform: none;
+  border-color: var(--line);
+}
+.carousel-row-strip.is-grid .carousel-row-slide:last-child:hover {
+  border-color: var(--line);
+}
+.carousel-row-stripwrap.is-grid .carousel-row-arrow,
+.carousel-row-stripwrap.is-grid::before,
+.carousel-row-stripwrap.is-grid::after {
+  display: none !important;
+}
+
 /* Scroll fade gradients on edges (visual hint that more content exists) */
 .carousel-row-stripwrap::before,
 .carousel-row-stripwrap::after {
@@ -596,6 +620,77 @@ const carouselsData = [
       'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043851/IMG_1138_fd7svd.jpg',
       'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043858/IMG_1139_ckjosx.jpg'
     ]
+  },
+  {
+    id: 'frustration-to-delight',
+    title: 'From Frustration to Delight: Recovering the CX Moment',
+    context: 'Carousel campaign on the customer service recovery moment - turning angry, frustrated customers into satisfied ones. Walks through active listening, empathy, personalization, and rapid problem-solving as the core mechanics of converting bad customer experiences into positive ones.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052586/IMG_1142_yfehxg.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1143_wwj7bs.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1144_e9duwa.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1145_vv1eku.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052588/IMG_1146_cykk3a.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1147_tn4ofd.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1148_bworpi.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052586/IMG_1149_u2l4ym.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778052587/IMG_1150_f24iju.jpg'
+    ]
+  },
+  {
+    id: 'hyper-personalization',
+    title: 'Leave Personalization Behind: Hyper-Personalization is the Future of CX',
+    context: 'Trend piece on the shift from basic personalization to AI-driven hyper-personalization. Walks through the framework difference, uses Spotify as a case study for behavioral data and recommendation algorithms, and covers ChatPandas\'s hyper-personalization approach through intelligent routing, conversational support, and CRM-driven insights.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053078/IMG_1154_nlfh2c.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053079/IMG_1155_rpwrcl.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053078/IMG_1156_a5f6by.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053079/IMG_1157_yx4lxx.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053079/IMG_1158_nnhckt.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053079/IMG_1159_tqsnhn.jpg'
+    ]
+  },
+  {
+    id: 'need-for-speed',
+    title: 'Your Customer Has a Need For Speed',
+    context: 'Carousel campaign built on a Need For Speed gaming creative concept. Frames customer response time as the CX competitive edge - covers Jay Baer\'s research on response speed, the 35-50% leads-to-fastest-responder stat, and how ChatPandas wins the response game through KPI tracking, lightning-fast managed live chat, omni-channel strategy, knowledge bank optimization, and email ticket automation.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1160_esb9y5.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053428/IMG_1263_kxfyyw.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1161_bxwbf2.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1162_aesrbz.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1163_dncdsq.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1164_ta5wav.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1165_lyxflp.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053080/IMG_1166_o7uv9z.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1167_c1ss4e.jpg'
+    ]
+  },
+  {
+    id: 'conscious-consumers',
+    title: 'It\'s Time to Talk to Your Conscious Consumers',
+    context: 'Carousel on conscious consumerism and how brands engage values-driven shoppers. Anchored by case studies (Zara/Inditex sustainable fabric pledge, IKEA buy-back and resell program) and stats (40% of global consumers buy with purpose, two-thirds of Gen-Z willing to spend up to 48% more on purpose-led brands). Covers four engagement pillars: transparency, education, customer experience, and contribution.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1168_bstrxa.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1169_yygqha.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1170_shkqa3.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1171_ojut3j.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053081/IMG_1172_frxo4y.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1173_xllhhx.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1174_pejncz.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1175_hxhrqc.jpg'
+    ]
+  },
+  {
+    id: 'breast-cancer-awareness',
+    title: 'Breast Cancer Awareness',
+    context: 'Three-image Instagram profile grid post for Breast Cancer Awareness Month. Three separate posts designed to align as a single unified visual on the IG feed: an awareness call-to-action ("Be Aware. Get Tested. Save Lives."), Jessica Cain (breast cancer survivor) portrait with awareness ribbon, and the 1-in-8 diagnosis stat infographic.',
+    displayType: 'grid',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1176_spcax1.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1177_khpnsu.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778053082/IMG_1178_yjfs7e.webp'
+    ]
   }
 ];
 
@@ -625,9 +720,11 @@ const carouselsData = [
 
     const wrap = document.createElement('div');
     wrap.className = 'carousel-row-stripwrap';
+    if (c.displayType === 'grid') wrap.classList.add('is-grid');
 
     const strip = document.createElement('div');
     strip.className = 'carousel-row-strip';
+    if (c.displayType === 'grid') strip.classList.add('is-grid');
     c.slides.forEach((url, idx) => {
       const slide = document.createElement('button');
       slide.className = 'carousel-row-slide';
