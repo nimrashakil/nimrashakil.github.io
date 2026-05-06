@@ -41,17 +41,164 @@ a:hover { text-decoration: underline; }
 .section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
 .section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
-/* Instagram square posts */
-.ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
-.ig-post { aspect-ratio: 1 / 1; background: var(--bg-soft); border: 1px solid var(--line); overflow: hidden; transition: border-color 0.15s; }
-.ig-post:hover { border-color: var(--ink); }
-.ig-post img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.ig-post-placeholder {
-  aspect-ratio: 1 / 1; background: var(--bg-soft);
-  border: 1px dashed var(--line);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--sans); font-size: 11px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+/* Instagram Carousels */
+.carousel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.carousel-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.carousel-cover:hover { border-color: var(--ink); transform: translateY(-2px); }
+.carousel-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-cover-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 16px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+  color: white;
+  text-align: left;
+}
+.carousel-cover-title {
+  display: block;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.carousel-cover-count {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Carousel modal (full-screen viewer) */
+.carousel-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.94);
+  z-index: 1000;
+  padding: 32px 20px 28px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-modal.open { display: flex; }
+.carousel-modal-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: rgba(255,255,255,0.08);
+  border: 0;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--sans);
+  z-index: 10;
+  border-radius: 50%;
+}
+.carousel-modal-close:hover { background: rgba(255,255,255,0.18); }
+.carousel-modal-inner {
+  max-width: 920px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 100%;
+}
+.carousel-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: white;
+  font-family: var(--sans);
+  gap: 16px;
+  padding: 0 4px;
+}
+.carousel-modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0;
+  line-height: 1.3;
+}
+.carousel-modal-counter {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.7;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.carousel-modal-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  min-height: 50vh;
+  flex: 1;
+}
+.carousel-modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+.carousel-modal-prev,
+.carousel-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 0;
+  color: white;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--sans);
+  border-radius: 50%;
+}
+.carousel-modal-prev:hover,
+.carousel-modal-next:hover { background: rgba(255,255,255,0.25); }
+.carousel-modal-prev { left: 12px; }
+.carousel-modal-next { right: 12px; }
+.carousel-modal-context {
+  color: rgba(255,255,255,0.85);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+  padding: 0 4px;
+  margin: 0;
 }
 
 /* Instagram Reels (vertical 9:16) */
@@ -96,7 +243,13 @@ a:hover { text-decoration: underline; }
   .hero-desc { font-size: 17px; }
   .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
   .section-header h2 { font-size: 20px; }
-  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .carousel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .carousel-cover-title { font-size: 12px; }
+  .carousel-modal { padding: 16px 12px 20px; }
+  .carousel-modal-image { max-height: 60vh; }
+  .carousel-modal-prev,
+  .carousel-modal-next { width: 36px; height: 36px; font-size: 18px; }
+  .carousel-modal-title { font-size: 15px; }
   .ig-reel-grid { grid-template-columns: 1fr; gap: 18px; }
   .doc-grid { grid-template-columns: 1fr; gap: 18px; }
   .doc-card { padding: 24px; min-height: auto; }
@@ -119,7 +272,7 @@ a:hover { text-decoration: underline; }
 
 <nav class="section-nav" id="sectionNav">
   <div class="section-nav-inner">
-    <a href="#instagram-posts">Instagram Posts</a>
+    <a href="#instagram-carousels">Instagram Carousels</a>
     <a href="#instagram-reels">Instagram Reels</a>
     <a href="#linkedin-pulse">LinkedIn Pulse</a>
   </div>
@@ -138,20 +291,13 @@ a:hover { text-decoration: underline; }
   </p>
 </section>
 
-<!-- Instagram Posts -->
-<section class="section" id="instagram-posts">
+<!-- Instagram Carousels -->
+<section class="section" id="instagram-carousels">
   <div class="section-header">
-    <h2>Instagram Posts</h2>
-    <span class="section-count">Carousels &amp; static posts</span>
+    <h2>Instagram Carousels</h2>
+    <span class="section-count">Multi-slide social campaigns  &middot;  ChatPandas</span>
   </div>
-  <div class="ig-grid">
-    <div class="ig-post-placeholder">Post 1</div>
-    <div class="ig-post-placeholder">Post 2</div>
-    <div class="ig-post-placeholder">Post 3</div>
-    <div class="ig-post-placeholder">Post 4</div>
-    <div class="ig-post-placeholder">Post 5</div>
-    <div class="ig-post-placeholder">Post 6</div>
-  </div>
+  <div class="carousel-grid" id="carouselGrid"></div>
 </section>
 
 <!-- Instagram Reels -->
@@ -189,19 +335,113 @@ a:hover { text-decoration: underline; }
 <section class="section" id="linkedin-pulse">
   <div class="section-header">
     <h2>LinkedIn Pulse Articles</h2>
-    <span class="section-count">Thought leadership</span>
+    <span class="section-count">5 articles  &middot;  ChatPandas, B2B SaaS</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card placeholder">
-      <span class="doc-badge">LinkedIn Pulse</span>
-      <p class="doc-eyebrow">Thought Leadership</p>
-      <h3 class="doc-title">[Article title goes here]</h3>
-      <p class="doc-desc">[1-line summary describing the angle and audience.]</p>
-      <div class="doc-meta">Wayback URL pending</div>
-      <span class="doc-link">Read article &rarr;</span>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  LinkedIn Pulse</p>
+      <h3 class="doc-title">Greater than CX: The Human Experience</h3>
+      <p class="doc-desc">
+        Industry thought leadership piece on the shift from Customer
+        Experience (CX) to Human Experience (HX). Draws examples from
+        Nike+Apple's product synchronization, Delta+Starbucks's reward
+        partnership, and Deciem's Black Friday boycott. References
+        Deloitte's Amelia Dunlop on HX overtaking CX, and frames
+        human-centricity as a competitive edge.
+      </p>
+      <div class="doc-meta">Strategic thought leadership  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506025808/https://www.linkedin.com/pulse/greater-than-cx-human-experience-chat-pandas/" target="_blank" rel="noopener">Read article &rarr;</a>
     </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  LinkedIn Pulse</p>
+      <h3 class="doc-title">Don't (just) Take Calls. Build Contact.</h3>
+      <p class="doc-desc">
+        Thought leadership piece arguing call centers should move beyond
+        transactional scorecards toward customer relationships. Reframes
+        agents as "idea hunters" who surface trends and pain points,
+        makes the case for prioritizing meaningful conversations over
+        short call times, links employee experience (EX) to customer
+        experience (CX) and revenue growth, and positions the call
+        center as a talent pipeline for customer-centric leaders.
+      </p>
+      <div class="doc-meta">Operational philosophy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506031705/https://www.linkedin.com/pulse/dont-just-take-calls-build-contact-chat-pandas/" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  LinkedIn Pulse</p>
+      <h3 class="doc-title">Heartful CX: Service Beyond Expectations</h3>
+      <p class="doc-desc">
+        Brand storytelling piece featuring a customer testimonial.
+        Tier-1 support agent Travis Alford helps an elderly customer
+        navigate identity verification on a website, restoring his
+        confidence in digital interactions. Frames empathy and
+        proactive listening as core ChatPandas values, anchored by a
+        heartfelt photograph of the customer holding a "Travis is
+        great" postcard.
+      </p>
+      <div class="doc-meta">Brand storytelling  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506031505/https://www.linkedin.com/pulse/heartful-cx-service-beyond-expectations-chat-pandas" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  LinkedIn Pulse</p>
+      <h3 class="doc-title">What Do Customers Want?</h3>
+      <p class="doc-desc">
+        Thought leadership piece on customer expectations and brand
+        loyalty. Anchored by research stats (96% of consumers prioritize
+        customer service in brand loyalty, 89% switch to a competitor
+        after one sub-par experience). Covers feedback loops, AI-driven
+        hyper-personalization, and the ChatPandas strategic blueprint
+        (genuine interactions, proactive engagement, unwavering quality,
+        AI personalization, instantaneous adaptability).
+      </p>
+      <div class="doc-meta">Research-backed strategy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506032324/https://www.linkedin.com/pulse/what-do-customers-want-chat-pandas/" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  LinkedIn Pulse</p>
+      <h3 class="doc-title">How to Clear a Ticket Backlog</h3>
+      <p class="doc-desc">
+        Operational tactical guide for support managers facing
+        high-volume ticket backlogs. Walks through the ChatPandas
+        approach to clearing a 30,000-ticket backlog: prioritize and
+        triage by urgency, automate repetitive tasks, scale staffing
+        temporarily, communicate transparently with customers, and run
+        a "Resolution Rush" all-hands session. Frames uncontrolled
+        backlogs as a financial and reputational risk.
+      </p>
+      <div class="doc-meta">Operational tactical  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506031808/https://www.linkedin.com/pulse/how-clear-ticket-backlog-chat-pandas/" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
   </div>
 </section>
+
+<!-- Carousel modal (single instance, populated dynamically) -->
+<div class="carousel-modal" id="carouselModal" aria-hidden="true">
+  <button class="carousel-modal-close" id="modalClose" aria-label="Close">&times;</button>
+  <div class="carousel-modal-inner">
+    <div class="carousel-modal-header">
+      <h3 class="carousel-modal-title" id="modalTitle"></h3>
+      <span class="carousel-modal-counter" id="modalCounter"></span>
+    </div>
+    <div class="carousel-modal-stage">
+      <button class="carousel-modal-prev" id="modalPrev" aria-label="Previous slide">&lsaquo;</button>
+      <img class="carousel-modal-image" id="modalImage" alt="">
+      <button class="carousel-modal-next" id="modalNext" aria-label="Next slide">&rsaquo;</button>
+    </div>
+    <p class="carousel-modal-context" id="modalContext"></p>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="site-footer-inner">
@@ -219,6 +459,135 @@ a:hover { text-decoration: underline; }
 </footer>
 
 <script>
+// =====================================================
+// Carousel data - to add a new carousel, append to this array
+// =====================================================
+const carouselsData = [
+  {
+    id: 'cx-metaverse',
+    title: 'CX in Metaverse: Reimagining the Future',
+    context: 'Trend piece exploring how the metaverse is reshaping customer experience. Examines immersive virtual environments as emerging CX touchpoints across retail, automotive, and entertainment brands.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042498/IMG_1115_mz5c5b.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1116_a1sgki.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1117_ut8wbm.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1118_ldps89.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1119_kgwwty.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042500/IMG_1123_dgqsqt.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1125_ynbdoo.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042499/IMG_1126_rfmv9a.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042500/IMG_1127_pdb54g.webp',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778042500/IMG_1128_fbzvkd.webp'
+    ]
+  },
+  {
+    id: 'what-customers-want',
+    title: 'What Do Customers Want?',
+    context: 'Carousel adaptation of the "What Do Customers Want?" thought leadership piece. Covers the customer-centricity imperative anchored by research stats (96% of consumers prioritize customer service in brand loyalty), the role of feedback loops, AI-driven hyper-personalization, and the ChatPandas strategic blueprint.',
+    slides: [
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043752/IMG_1131_gbxtql.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043758/IMG_1132_vi8qlh.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043766/IMG_1133_aqj6ej.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043773/IMG_1134_iy2bni.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043781/IMG_1135_cn6liv.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043788/IMG_1136_mzari4.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043796/IMG_1137_pfan4j.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043851/IMG_1138_fd7svd.jpg',
+      'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1778043858/IMG_1139_ckjosx.jpg'
+    ]
+  }
+];
+
+// =====================================================
+// Render carousel covers in the grid
+// =====================================================
+(function() {
+  const grid = document.getElementById('carouselGrid');
+  if (!grid) return;
+  carouselsData.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'carousel-cover';
+    btn.setAttribute('aria-label', 'Open carousel: ' + c.title);
+    btn.innerHTML =
+      '<img src="' + c.slides[0] + '" alt="' + c.title + ' cover" loading="lazy">' +
+      '<div class="carousel-cover-overlay">' +
+        '<span class="carousel-cover-title">' + c.title + '</span>' +
+        '<span class="carousel-cover-count">' + c.slides.length + ' slides</span>' +
+      '</div>';
+    btn.addEventListener('click', () => openCarousel(c));
+    grid.appendChild(btn);
+  });
+})();
+
+// =====================================================
+// Carousel modal logic
+// =====================================================
+const modal = document.getElementById('carouselModal');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalCounter = document.getElementById('modalCounter');
+const modalContext = document.getElementById('modalContext');
+let currentCarousel = null;
+let currentIndex = 0;
+
+function openCarousel(c) {
+  currentCarousel = c;
+  currentIndex = 0;
+  modalTitle.textContent = c.title;
+  modalContext.textContent = c.context;
+  updateSlide();
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeCarousel() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  currentCarousel = null;
+}
+function updateSlide() {
+  if (!currentCarousel) return;
+  modalImage.src = currentCarousel.slides[currentIndex];
+  modalCounter.textContent = (currentIndex + 1) + ' / ' + currentCarousel.slides.length;
+}
+function nextSlide() {
+  if (!currentCarousel) return;
+  currentIndex = (currentIndex + 1) % currentCarousel.slides.length;
+  updateSlide();
+}
+function prevSlide() {
+  if (!currentCarousel) return;
+  currentIndex = (currentIndex - 1 + currentCarousel.slides.length) % currentCarousel.slides.length;
+  updateSlide();
+}
+
+document.getElementById('modalClose').addEventListener('click', closeCarousel);
+document.getElementById('modalPrev').addEventListener('click', prevSlide);
+document.getElementById('modalNext').addEventListener('click', nextSlide);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeCarousel(); });
+document.addEventListener('keydown', (e) => {
+  if (!modal.classList.contains('open')) return;
+  if (e.key === 'Escape') closeCarousel();
+  if (e.key === 'ArrowLeft') prevSlide();
+  if (e.key === 'ArrowRight') nextSlide();
+});
+
+// Touch swipe on mobile
+let touchStartX = 0;
+modal.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+modal.addEventListener('touchend', (e) => {
+  if (!currentCarousel) return;
+  const touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) { (diff > 0 ? nextSlide : prevSlide)(); }
+}, { passive: true });
+
+// =====================================================
+// Scroll-spy for section nav
+// =====================================================
 (function() {
   const navLinks = document.querySelectorAll('.section-nav a');
   const sections = Array.from(navLinks).map(link => {
