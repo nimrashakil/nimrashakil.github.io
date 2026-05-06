@@ -41,17 +41,38 @@ a:hover { text-decoration: underline; }
 .section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
 .section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
-.doc-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 28px 24px; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s; min-height: 260px; }
-.doc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.doc-card {
+  background: #EDE8DD;
+  border: 1px solid var(--line);
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s, background 0.18s;
+  min-height: 260px;
+  position: relative;
+}
+.doc-card:hover {
+  border-color: var(--ink);
+  background: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-decoration: none;
+}
+.doc-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
 .doc-badge { font-family: var(--sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); background: var(--badge-bg); padding: 5px 9px; align-self: flex-start; margin-bottom: 18px; }
 .doc-badge.medium { color: var(--ink-soft); }
 .doc-badge.light  { color: var(--muted); }
 .doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
 .doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
 .doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
-.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line-soft); margin-bottom: 14px; }
-.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
-.doc-link:hover { text-decoration: underline; }
+.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line); margin-bottom: 14px; }
+.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+.doc-card:hover .doc-link { text-decoration: underline; }
 .site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
 .site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
 .site-footer a { color: var(--muted); }
@@ -111,7 +132,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">3 pages  &middot;  B2B SaaS, Customer Experience</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="../chatpandas-sales.jpg" target="_blank" rel="noopener">
       <span class="doc-badge">Sales Landing Page</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Sales Landing Page</h3>
@@ -122,9 +143,9 @@ a:hover { text-decoration: underline; }
         closing proof block.
       </p>
       <div class="doc-meta">B2B sales services  &middot;  Full-page screenshot</div>
-      <a class="doc-link" href="../chatpandas-sales.jpg" target="_blank" rel="noopener">View page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://web.archive.org/web/20260505232212/https://www.chatpandas.com/" target="_blank" rel="noopener">
       <span class="doc-badge medium">Homepage</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">ChatPandas Homepage</h3>
@@ -134,9 +155,9 @@ a:hover { text-decoration: underline; }
         trust signals across the homepage.
       </p>
       <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260505232212/https://www.chatpandas.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://web.archive.org/web/20260505232221/https://www.chatpandas.com/services" target="_blank" rel="noopener">
       <span class="doc-badge medium">Services Page</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">ChatPandas Services</h3>
@@ -146,8 +167,8 @@ a:hover { text-decoration: underline; }
         ChatPandas portfolio.
       </p>
       <div class="doc-meta">Service offerings  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260505232221/https://www.chatpandas.com/services" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -158,7 +179,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">4 pages  &middot;  Parent Brand of ChatPandas</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20250321032255/https://livechatltd.com/" target="_blank" rel="noopener">
       <span class="doc-badge">Homepage</span>
       <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Corporate Site</h3>
@@ -168,9 +189,9 @@ a:hover { text-decoration: underline; }
         marketing pages.
       </p>
       <div class="doc-meta">Corporate site  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20250321032255/https://livechatltd.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://livechatltd.com/services/" target="_blank" rel="noopener">
       <span class="doc-badge medium">Services Hub</span>
       <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Services Overview</h3>
@@ -180,9 +201,9 @@ a:hover { text-decoration: underline; }
         centre, and technical support into a single browsable hub.
       </p>
       <div class="doc-meta">Services hub  &middot;  Live page</div>
-      <a class="doc-link" href="https://livechatltd.com/services/" target="_blank" rel="noopener">View page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://livechatltd.com/industries/" target="_blank" rel="noopener">
       <span class="doc-badge medium">Industries</span>
       <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Industries Overview</h3>
@@ -192,9 +213,9 @@ a:hover { text-decoration: underline; }
         each industry rather than generic service descriptions.
       </p>
       <div class="doc-meta">Audience segmentation  &middot;  Live page</div>
-      <a class="doc-link" href="https://livechatltd.com/industries/" target="_blank" rel="noopener">View page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://livechatltd.com/pricing/" target="_blank" rel="noopener">
       <span class="doc-badge light">Pricing &amp; Form</span>
       <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Pricing Page</h3>
@@ -204,8 +225,8 @@ a:hover { text-decoration: underline; }
         enquiry form.
       </p>
       <div class="doc-meta">Pricing &amp; conversion form  &middot;  Live page</div>
-      <a class="doc-link" href="https://livechatltd.com/pricing/" target="_blank" rel="noopener">View page &rarr;</a>
-    </article>
+      <span class="doc-link">View page &rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -216,7 +237,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">3 pages  &middot;  Weight Loss Telehealth</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260417051220/https://joinminimal.com/" target="_blank" rel="noopener">
       <span class="doc-badge">Homepage</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Minimal Homepage</h3>
@@ -226,9 +247,9 @@ a:hover { text-decoration: underline; }
         and Heally.
       </p>
       <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260417051220/https://joinminimal.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://web.archive.org/web/20260505224841/https://joinminimal.com/medications/semaglutide" target="_blank" rel="noopener">
       <span class="doc-badge medium">Semaglutide</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Semaglutide Treatment Page</h3>
@@ -238,9 +259,9 @@ a:hover { text-decoration: underline; }
         for the brand's flagship medication.
       </p>
       <div class="doc-meta">Medication landing page  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260505224841/https://joinminimal.com/medications/semaglutide" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
+    <a class="doc-card" href="https://web.archive.org/web/20260505224823/https://joinminimal.com/medications/tirzepatide" target="_blank" rel="noopener">
       <span class="doc-badge medium">Tirzepatide</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Tirzepatide Treatment Page</h3>
@@ -251,8 +272,8 @@ a:hover { text-decoration: underline; }
         portfolio.
       </p>
       <div class="doc-meta">Medication landing page  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260505224823/https://joinminimal.com/medications/tirzepatide" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -263,7 +284,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">1 page  &middot;  Telehealth</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260505225045/https://parkingmd.com/" target="_blank" rel="noopener">
       <span class="doc-badge">Homepage</span>
       <p class="doc-eyebrow">ParkingMD  &middot;  Telehealth</p>
       <h3 class="doc-title">ParkingMD Homepage</h3>
@@ -273,8 +294,8 @@ a:hover { text-decoration: underline; }
         structure for the portfolio's highest-traffic property.
       </p>
       <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260505225045/https://parkingmd.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
-    </article>
+      <span class="doc-link">View archived page &rarr;</span>
+    </a>
   </div>
 </section>
 
