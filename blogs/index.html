@@ -46,15 +46,36 @@ a:hover { text-decoration: underline; }
 .section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
 .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
-.doc-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 28px 24px; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s; min-height: 260px; }
-.doc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.doc-card {
+  background: #EDE8DD;
+  border: 1px solid var(--line);
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s, background 0.18s;
+  min-height: 260px;
+  position: relative;
+}
+.doc-card:hover {
+  border-color: var(--ink);
+  background: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-decoration: none;
+}
+.doc-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
 
 .doc-card.featured {
   grid-column: span 2;
   border: 2px solid var(--ink);
-  background: var(--bg-soft);
+  background: #EDE8DD;
 }
-.doc-card.featured:hover { transform: translateY(-2px); }
+.doc-card.featured:hover { transform: translateY(-2px); background: #FFFFFF; }
 .doc-pillar-tag {
   font-family: var(--sans); font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.16em;
@@ -66,9 +87,9 @@ a:hover { text-decoration: underline; }
 .doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
 .doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
 .doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
-.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line-soft); margin-bottom: 14px; }
-.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
-.doc-link:hover { text-decoration: underline; }
+.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line); margin-bottom: 14px; }
+.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+.doc-card:hover .doc-link { text-decoration: underline; }
 
 .site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
 .site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
@@ -135,7 +156,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="doc-grid">
 
-    <article class="doc-card featured">
+    <a class="doc-card featured" href="https://web.archive.org/web/20260417040648/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Finside-the-semaglutide-company" target="_blank" rel="noopener">
       <span class="doc-pillar-tag">&#9733; Pillar piece anchoring the cluster strategy</span>
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
@@ -147,10 +168,10 @@ a:hover { text-decoration: underline; }
         competitive landscape across GLP-1 weight management drugs.
       </p>
       <div class="doc-meta">Pillar piece  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260417040648/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Finside-the-semaglutide-company" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031314/https%3A%2F%2Fjoinminimal.com%2Fnutritional-wisdom%2Fstill-hungry-on-semaglutide" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Still Hungry on Semaglutide? Tips to Tame Your Appetite</h3>
@@ -161,10 +182,10 @@ a:hover { text-decoration: underline; }
         dose adjustments to a healthcare provider.
       </p>
       <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031314/https%3A%2F%2Fjoinminimal.com%2Fnutritional-wisdom%2Fstill-hungry-on-semaglutide" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418034806/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Fwegovy-vs-ozempic" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Wegovy vs Ozempic: Which One Leads to Sustainable Weight Loss?</h3>
@@ -175,10 +196,10 @@ a:hover { text-decoration: underline; }
         and Reddit user experiences with switching between the two.
       </p>
       <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418034806/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Fwegovy-vs-ozempic" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418025606/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Feli-lilly-oral-glp-1-pill" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Eli Lilly's Oral GLP-1 Pill: A Breakthrough in Weight Loss Care</h3>
@@ -189,10 +210,10 @@ a:hover { text-decoration: underline; }
         switching from injectables to oral therapy.
       </p>
       <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418025606/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Feli-lilly-oral-glp-1-pill" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418030145/https%3A%2F%2Fjoinminimal.com%2Fwomens-health%2Fsemaglutide-pregnancy" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Semaglutide and Pregnancy: Safety, Risks, and Medical Guidelines</h3>
@@ -203,10 +224,10 @@ a:hover { text-decoration: underline; }
         navigate the conversation with a healthcare provider.
       </p>
       <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418030145/https%3A%2F%2Fjoinminimal.com%2Fwomens-health%2Fsemaglutide-pregnancy" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031545/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Fbest-online-weight-loss-programs" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Skip The Waiting Room: Best Online Weight Loss Programs</h3>
@@ -217,10 +238,10 @@ a:hover { text-decoration: underline; }
         insurance coverage, and integrated medical-nutrition-fitness service models.
       </p>
       <div class="doc-meta">Telehealth cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031545/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Fbest-online-weight-loss-programs" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031633/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Ftelehealth-weight-loss-programs" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Transform Your Body Without Leaving Home: Telehealth Weight Loss</h3>
@@ -232,10 +253,10 @@ a:hover { text-decoration: underline; }
         sustainable weight management.
       </p>
       <div class="doc-meta">Telehealth cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031633/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Ftelehealth-weight-loss-programs" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031355/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fweight-loss-trends-2025" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">Weight Loss Trends 2025: Cutting-Edge Innovations and Strategies</h3>
@@ -246,10 +267,10 @@ a:hover { text-decoration: underline; }
         management in 2025.
       </p>
       <div class="doc-meta">Trend piece  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031355/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fweight-loss-trends-2025" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031706/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fai-in-personalized-nutrition" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">AI in Personalized Nutrition: How Technology Crafts Tailored Diet Plans In 2025</h3>
@@ -260,10 +281,10 @@ a:hover { text-decoration: underline; }
         supplement delivery, and the trajectory of adaptive meal planning systems.
       </p>
       <div class="doc-meta">Trend piece  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031706/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fai-in-personalized-nutrition" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418034702/https%3A%2F%2Fjoinminimal.com%2Flifestyle-balance%2Fhamstring-stretching-flexibility-guide" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">From Stiff to Supple: Your Guide to Hamstring Stretching and Flexibility</h3>
@@ -274,10 +295,10 @@ a:hover { text-decoration: underline; }
         and progressive stretching techniques with daily integration strategies.
       </p>
       <div class="doc-meta">Wellness cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418034702/https%3A%2F%2Fjoinminimal.com%2Flifestyle-balance%2Fhamstring-stretching-flexibility-guide" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260418031523/https%3A%2F%2Fjoinminimal.com%2Ffitness-journeys%2Fbest-rope-flow-training-programs" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
       <h3 class="doc-title">What Are The Best Rope Flow Training Programs?</h3>
@@ -288,8 +309,8 @@ a:hover { text-decoration: underline; }
         gains, posture, and stress release.
       </p>
       <div class="doc-meta">Fitness cluster  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260418031523/https%3A%2F%2Fjoinminimal.com%2Ffitness-journeys%2Fbest-rope-flow-training-programs" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
   </div>
 </section>
@@ -302,7 +323,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="doc-grid">
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506021540/https://leafydoc.com/best-new-jersey-medical-marijuana-doctors" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">Best Medical Marijuana Doctors in New Jersey</h3>
@@ -313,10 +334,10 @@ a:hover { text-decoration: underline; }
         Classic local-search-optimized content.
       </p>
       <div class="doc-meta">Local SEO  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506021540/https://leafydoc.com/best-new-jersey-medical-marijuana-doctors" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506021513/https://leafydoc.com/medical-cannabis-card-renewal-guide" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">Medical Cannabis Card Renewal Made Easy | Avoid These Mistakes</h3>
@@ -327,10 +348,10 @@ a:hover { text-decoration: underline; }
         and a renewal options comparison table.
       </p>
       <div class="doc-meta">Renewal flow  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506021513/https://leafydoc.com/medical-cannabis-card-renewal-guide" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506022017/https://leafydoc.com/how-to-get-medical-marijuana-card-online" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">How to Get a Medical Marijuana Card Online: A Complete Guide to Certification</h3>
@@ -341,10 +362,10 @@ a:hover { text-decoration: underline; }
         comparison, and renewal cycles.
       </p>
       <div class="doc-meta">Certification flow  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506022017/https://leafydoc.com/how-to-get-medical-marijuana-card-online" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506021535/https://leafydoc.com/2025-cannabis-policy-reform" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">The Future of Medicinal Use: Insights into 2025 Cannabis Policy Reform Legislation</h3>
@@ -355,10 +376,10 @@ a:hover { text-decoration: underline; }
         revenue impact, and patient advocacy perspectives.
       </p>
       <div class="doc-meta">Policy &amp; advocacy  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506021535/https://leafydoc.com/2025-cannabis-policy-reform" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506021855/https://leafydoc.com/cannabis-honey-guide" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">Cannabis Honey 101: Everything You Need to Know Before You Start</h3>
@@ -370,10 +391,10 @@ a:hover { text-decoration: underline; }
         beverages and cooking.
       </p>
       <div class="doc-meta">Lifestyle &amp; cooking  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506021855/https://leafydoc.com/cannabis-honey-guide" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506021857/https://leafydoc.com/how-to-make-thc-powder" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
       <h3 class="doc-title">How to Make THC Powder: A Step-by-Step Guide for Beginners</h3>
@@ -385,8 +406,8 @@ a:hover { text-decoration: underline; }
         dosage and side-effect guidelines.
       </p>
       <div class="doc-meta">Lifestyle &amp; extraction  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506021857/https://leafydoc.com/how-to-make-thc-powder" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
   </div>
 </section>
@@ -399,7 +420,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="doc-grid">
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506013855/https://leafymate.com/resources/understanding-dispensaries/find-local-cannabis-dispensaries" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
       <h3 class="doc-title">Your Ultimate Guide to Finding Local Cannabis Dispensaries</h3>
@@ -409,10 +430,10 @@ a:hover { text-decoration: underline; }
         dispensary, and a competitive comparison against alternative platforms.
       </p>
       <div class="doc-meta">Buyer-intent  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506013855/https://leafymate.com/resources/understanding-dispensaries/find-local-cannabis-dispensaries" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506013722/https%3A%2F%2Fleafymate.com%2Fresources%2Fcannabis-101%2Fget-medical-cannabis-card" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
       <h3 class="doc-title">How to Get Your Medical Cannabis Card Fast and Legally</h3>
@@ -422,10 +443,10 @@ a:hover { text-decoration: underline; }
         where the card is valid, and best strains for medical use.
       </p>
       <div class="doc-meta">Action-stage how-to  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506013722/https%3A%2F%2Fleafymate.com%2Fresources%2Fcannabis-101%2Fget-medical-cannabis-card" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506013812/https%3A%2F%2Fleafymate.com%2Fresources%2Fchoosing-the-right-cannabis-products%2Fbest-cannabis-cbd-products" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
       <h3 class="doc-title">Top Cannabis and CBD Products Worth Trying: From Flowers to Edibles</h3>
@@ -435,10 +456,10 @@ a:hover { text-decoration: underline; }
         literacy, and frameworks for informed purchasing decisions.
       </p>
       <div class="doc-meta">Product consideration  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506013812/https%3A%2F%2Fleafymate.com%2Fresources%2Fchoosing-the-right-cannabis-products%2Fbest-cannabis-cbd-products" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506013824/https%3A%2F%2Fleafymate.com%2Fresources%2Fadvocacy-and-legislation%2F2025-cannabis-policy-reform" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
       <h3 class="doc-title">2025 Cannabis Policy Reform Legislation: What Advocates Need to Know</h3>
@@ -450,8 +471,8 @@ a:hover { text-decoration: underline; }
         social-justice framing.
       </p>
       <div class="doc-meta">Advocacy &amp; policy  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506013824/https%3A%2F%2Fleafymate.com%2Fresources%2Fadvocacy-and-legislation%2F2025-cannabis-policy-reform" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
   </div>
 </section>
@@ -464,7 +485,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="doc-grid">
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506000014/https%3A%2F%2Fwellnesswag.com%2Fblog%2Flegitimate-esa-letter-online" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
       <h3 class="doc-title">5 Simple Steps to Get Your Legitimate ESA Letter Online</h3>
@@ -476,10 +497,10 @@ a:hover { text-decoration: underline; }
         renewal support), and a Wellness Wag versus competitor comparison.
       </p>
       <div class="doc-meta">Conversion path  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506000014/https%3A%2F%2Fwellnesswag.com%2Fblog%2Flegitimate-esa-letter-online" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506000006/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fesa-registration-services-myths-and-facts" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
       <h3 class="doc-title">The Truth About ESA Registration Services: Legal Facts vs. Common Myths</h3>
@@ -491,10 +512,10 @@ a:hover { text-decoration: underline; }
         matters: a valid ESA letter from a licensed mental health professional.
       </p>
       <div class="doc-meta">Myth-busting  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506000006/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fesa-registration-services-myths-and-facts" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506000113/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fbest-emotional-support-dog-breeds-for-anxiety-depression" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
       <h3 class="doc-title">Discover the 7 Best Emotional Support Dog Breeds for Anxiety and Depression</h3>
@@ -506,10 +527,10 @@ a:hover { text-decoration: underline; }
         context on legal recognition under the FHA and ADA.
       </p>
       <div class="doc-meta">Listicle  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506000113/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fbest-emotional-support-dog-breeds-for-anxiety-depression" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506000045/https://wellnesswag.com/blog/best-pets-for-college-students" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
       <h3 class="doc-title">Best Pets for College Students</h3>
@@ -521,8 +542,8 @@ a:hover { text-decoration: underline; }
         budget considerations for dorm and apartment living.
       </p>
       <div class="doc-meta">Audience-specific lifestyle  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506000045/https://wellnesswag.com/blog/best-pets-for-college-students" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
   </div>
 </section>
@@ -535,7 +556,7 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="doc-grid">
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506024309/https://www.chatpandas.com/insight/outsourcing-your-it-helpdesk" target="_blank" rel="noopener">
       <span class="doc-badge">BOFU</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">How Outsourcing Your IT Helpdesk Could Be a Game-Changer for Your Business</h3>
@@ -547,10 +568,10 @@ a:hover { text-decoration: underline; }
         FCR improvement) and concrete market data.
       </p>
       <div class="doc-meta">Case-study driven  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506024309/https://www.chatpandas.com/insight/outsourcing-your-it-helpdesk" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506024214/https://www.chatpandas.com/insight/live-chat-agents-in-customer-service" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">The Role of Live Chat Agents in Modern Customer Service: Why Are They Essential</h3>
@@ -562,10 +583,10 @@ a:hover { text-decoration: underline; }
         increase, 3x purchase likelihood), and customer insight applications.
       </p>
       <div class="doc-meta">Business case  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506024214/https://www.chatpandas.com/insight/live-chat-agents-in-customer-service" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506024347/https://www.chatpandas.com/insight/key-call-center-kpis" target="_blank" rel="noopener">
       <span class="doc-badge">MOFU</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Enhancing Customer Service: 8 Key Call Center KPIs to Monitor and Improve</h3>
@@ -577,10 +598,10 @@ a:hover { text-decoration: underline; }
         strategic importance, and industry benchmarks for each.
       </p>
       <div class="doc-meta">Operational tactical  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506024347/https://www.chatpandas.com/insight/key-call-center-kpis" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
-    <article class="doc-card">
+    <a class="doc-card" href="https://web.archive.org/web/20260506024153/https://www.chatpandas.com/insight/customer-service-trends-to-watch-in-2025" target="_blank" rel="noopener">
       <span class="doc-badge">TOFU</span>
       <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
       <h3 class="doc-title">Customer Service Trends to Watch in 2025: Insights and Predictions</h3>
@@ -592,8 +613,8 @@ a:hover { text-decoration: underline; }
         analytics, and social media's role in customer service.
       </p>
       <div class="doc-meta">Industry trends  &middot;  Archived on Wayback Machine</div>
-      <a class="doc-link" href="https://web.archive.org/web/20260506024153/https://www.chatpandas.com/insight/customer-service-trends-to-watch-in-2025" target="_blank" rel="noopener">Read article &rarr;</a>
-    </article>
+      <span class="doc-link">Read article &rarr;</span>
+    </a>
 
   </div>
 </section>
