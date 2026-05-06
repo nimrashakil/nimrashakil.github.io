@@ -316,7 +316,9 @@ a:hover { text-decoration: underline; }
 }
 .ig-reel-body { padding: 16px 18px 20px; }
 .ig-reel-title { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.005em; }
-.ig-reel-context { font-family: var(--serif); font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+.ig-reel-context { font-family: var(--serif); font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+.ig-reel-context p { margin: 0 0 10px 0; }
+.ig-reel-context p:last-child { margin-bottom: 0; }
 
 /* doc-card for LinkedIn Pulse */
 .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
@@ -1000,8 +1002,26 @@ const reelsData = [
   {
     id: 'jessica-cain-story',
     title: "Jessica Cain's Story",
-    context: "Survivor interview at the heart of the breast cancer awareness campaign. Jessica Cain shares her breast cancer diagnosis, 16 rounds of chemo, and recovery.",
+    context: "For Breast Cancer Awareness Month, we built the campaign around Jessica Cain, a breast cancer survivor on the ChatPandas team. Her mission was to convey how early testing saves lives. The campaign was adopted globally across ChatPandas' international client network and became one of the most shared pieces of social work the company produced.",
     videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_3_eq3aac.mp4'
+  },
+  {
+    id: 'meet-ricky',
+    title: "Meet Ricky",
+    context: "A team-spotlight reel for ChatPandas' diversity and inclusion campaign, introducing Ricky, our Creative Director and a brand ambassador for his country in the Global Albinism Alliance. His story of overcoming challenges, owning his unique identity, and never giving up resonated globally and became one of the highest-engagement pieces in the campaign.",
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_4_fxhqen.mp4'
+  },
+  {
+    id: 'imagine-a-world',
+    title: "Imagine a World Without Customer Service",
+    context: "A brand positioning reel for ChatPandas, opening with 'imagine a world without customer service' before delivering the brand promise: always there, day or night, rain or shine. The reel was the centerpiece of our 24/7 awareness campaign and became one of the most-shared pieces in the brand's content library.",
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060876/video_1778060953_qv6plt.mp4'
+  },
+  {
+    id: 'why-human-support-wins',
+    title: "Why Human Support Wins",
+    context: "An editorial reel I wrote for ChatPandas, animated by our in-house designer. The argument runs in three beats: chatbots are designed to replace humans, chatbots can lack the human touch, and when emotional connection matters, human support wins. The 'my grandma is dead' gag at the center turned into a running joke.",
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778061101/video_1778061257_m9lagh.mp4'
   }
 ];
 
@@ -1011,13 +1031,14 @@ const reelsData = [
   reelsData.forEach(r => {
     const card = document.createElement('div');
     card.className = 'ig-reel-card';
+    const paragraphs = r.context.split('\n\n').map(p => `<p>${p}</p>`).join('');
     card.innerHTML = `
       <video class="ig-reel-video" controls preload="metadata" playsinline>
         <source src="${r.videoUrl}" type="video/mp4">
       </video>
       <div class="ig-reel-body">
         <div class="ig-reel-title">${r.title}</div>
-        <div class="ig-reel-context">${r.context}</div>
+        <div class="ig-reel-context">${paragraphs}</div>
       </div>
     `;
     container.appendChild(card);
