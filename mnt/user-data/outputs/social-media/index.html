@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media | Nimra Shakil</title>
+<meta name="description" content="Managed social media calendars for ChatPandas across Facebook, Instagram, LinkedIn, and Twitter. Includes Instagram posts, Reels, and LinkedIn Pulse articles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root {
+  --ink: #0F0F0F; --ink-soft: #1F1F1F;
+  --muted: #666666; --muted-soft: #8A8A8A;
+  --line: #E0E0E0; --line-soft: #EEEEEE;
+  --bg: #FFFFFF; --bg-soft: #FAFAFA; --badge-bg: #F2F2F2;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-soft); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { color: var(--ink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); padding: 18px 48px; }
+.site-header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+.brand-sub { font-family: var(--sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 2px; }
+.back-link { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.back-link:hover { color: var(--ink); text-decoration: none; }
+.section-nav { position: sticky; top: 65px; z-index: 99; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 48px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.section-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 28px; font-family: var(--sans); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+.section-nav a { color: var(--muted); padding: 4px 0; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.section-nav a:hover { color: var(--ink); text-decoration: none; }
+.section-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+.hero { max-width: 1200px; margin: 0 auto; padding: 72px 48px 56px; }
+.hero-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 20px; }
+.hero h1 { font-family: var(--sans); font-size: 52px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 24px; max-width: 900px; }
+.hero-desc { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink-soft); max-width: 720px; }
+.section { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; scroll-margin-top: 130px; }
+.section-header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 32px; margin-bottom: 28px; gap: 24px; }
+.section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+.section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+
+/* Instagram square posts */
+.ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.ig-post { aspect-ratio: 1 / 1; background: var(--bg-soft); border: 1px solid var(--line); overflow: hidden; transition: border-color 0.15s; }
+.ig-post:hover { border-color: var(--ink); }
+.ig-post img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-post-placeholder {
+  aspect-ratio: 1 / 1; background: var(--bg-soft);
+  border: 1px dashed var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+}
+
+/* Instagram Reels (vertical 9:16) */
+.ig-reel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 280px)); gap: 24px; }
+.ig-reel-card { background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; }
+.ig-reel-video { aspect-ratio: 9 / 16; width: 100%; background: var(--bg-soft); display: block; border: 0; }
+.ig-reel-placeholder {
+  aspect-ratio: 9 / 16; background: var(--bg-soft);
+  border-bottom: 1px dashed var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+}
+.ig-reel-body { padding: 16px 18px 20px; }
+.ig-reel-title { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.005em; }
+.ig-reel-context { font-family: var(--serif); font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+
+/* doc-card for LinkedIn Pulse */
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.doc-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 28px 24px; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s; min-height: 240px; }
+.doc-card.placeholder { border-style: dashed; opacity: 0.65; }
+.doc-card.placeholder:hover { transform: none; border-color: var(--line); }
+.doc-badge { font-family: var(--sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); background: var(--badge-bg); padding: 5px 9px; align-self: flex-start; margin-bottom: 18px; }
+.doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
+.doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
+.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line-soft); margin-bottom: 14px; }
+.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+.doc-link:hover { text-decoration: underline; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
+.site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+
+@media (max-width: 768px) {
+  .site-header { padding: 16px 24px; }
+  .section-nav { padding: 10px 24px; }
+  .section-nav-inner { gap: 20px; font-size: 11px; }
+  .hero { padding: 48px 24px 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero-desc { font-size: 17px; }
+  .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
+  .section-header h2 { font-size: 20px; }
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ig-reel-grid { grid-template-columns: 1fr; gap: 18px; }
+  .doc-grid { grid-template-columns: 1fr; gap: 18px; }
+  .doc-card { padding: 24px; min-height: auto; }
+  .site-footer { padding: 36px 24px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div>
+      <div class="brand">Nimra Shakil</div>
+      <div class="brand-sub">Social Media</div>
+    </div>
+    <a class="back-link" href="../writing.html">&larr; Writing</a>
+  </div>
+</header>
+
+<nav class="section-nav" id="sectionNav">
+  <div class="section-nav-inner">
+    <a href="#instagram-posts">Instagram Posts</a>
+    <a href="#instagram-reels">Instagram Reels</a>
+    <a href="#linkedin-pulse">LinkedIn Pulse</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Social Media &amp; Distribution</div>
+  <h1>Social calendars and content distribution for B2B SaaS.</h1>
+  <p class="hero-desc">
+    Managed 6-month and 3-month social media calendars for ChatPandas
+    across Facebook, Instagram, LinkedIn, and Twitter. Raised LinkedIn
+    impression reach to 50,000+ within a quarter and increased social
+    media engagement by 50%. Owned ideation, scripting, production,
+    and posting across Reels, carousels, static posts, and LinkedIn
+    articles.
+  </p>
+</section>
+
+<!-- Instagram Posts -->
+<section class="section" id="instagram-posts">
+  <div class="section-header">
+    <h2>Instagram Posts</h2>
+    <span class="section-count">Carousels &amp; static posts</span>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-post-placeholder">Post 1</div>
+    <div class="ig-post-placeholder">Post 2</div>
+    <div class="ig-post-placeholder">Post 3</div>
+    <div class="ig-post-placeholder">Post 4</div>
+    <div class="ig-post-placeholder">Post 5</div>
+    <div class="ig-post-placeholder">Post 6</div>
+  </div>
+</section>
+
+<!-- Instagram Reels -->
+<section class="section" id="instagram-reels">
+  <div class="section-header">
+    <h2>Instagram Reels</h2>
+    <span class="section-count">Vertical short-form video</span>
+  </div>
+  <div class="ig-reel-grid">
+    <div class="ig-reel-card">
+      <div class="ig-reel-placeholder">Reel 1</div>
+      <div class="ig-reel-body">
+        <div class="ig-reel-title">[Reel title]</div>
+        <div class="ig-reel-context">[1-line context: hook, theme, or campaign.]</div>
+      </div>
+    </div>
+    <div class="ig-reel-card">
+      <div class="ig-reel-placeholder">Reel 2</div>
+      <div class="ig-reel-body">
+        <div class="ig-reel-title">[Reel title]</div>
+        <div class="ig-reel-context">[1-line context.]</div>
+      </div>
+    </div>
+    <div class="ig-reel-card">
+      <div class="ig-reel-placeholder">Reel 3</div>
+      <div class="ig-reel-body">
+        <div class="ig-reel-title">[Reel title]</div>
+        <div class="ig-reel-context">[1-line context.]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LinkedIn Pulse -->
+<section class="section" id="linkedin-pulse">
+  <div class="section-header">
+    <h2>LinkedIn Pulse Articles</h2>
+    <span class="section-count">Thought leadership</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card placeholder">
+      <span class="doc-badge">LinkedIn Pulse</span>
+      <p class="doc-eyebrow">Thought Leadership</p>
+      <h3 class="doc-title">[Article title goes here]</h3>
+      <p class="doc-desc">[1-line summary describing the angle and audience.]</p>
+      <div class="doc-meta">Wayback URL pending</div>
+      <span class="doc-link">Read article &rarr;</span>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <strong>Nimra Shakil</strong>  &middot;  SEO Content Strategist  &middot;  Lahore, Pakistan
+    </div>
+    <div>
+      <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:nimra.shakil@gmail.com">Email</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../writing.html">Back to Writing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('.section-nav a');
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { link, section: document.getElementById(id) };
+  }).filter(item => item.section);
+  function updateActive() {
+    const scrollPos = window.scrollY + 200;
+    let currentActive = sections[0];
+    for (const item of sections) {
+      if (item.section.offsetTop <= scrollPos) currentActive = item;
+    }
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (currentActive) currentActive.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
+
+</body>
+</html>

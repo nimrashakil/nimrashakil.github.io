@@ -1,213 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nimra Shakil | Senior SEO Content Strategist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Pages | Nimra Shakil</title>
+<meta name="description" content="Eleven landing pages across telehealth, weight loss, B2B SaaS, and corporate brand work. Hero copy, value propositions, conversion structure, and embedded forms across the ChatPandas, LiveChat Ltd, Minimal, and ParkingMD portfolios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root {
+  --ink: #0F0F0F; --ink-soft: #1F1F1F;
+  --muted: #666666; --muted-soft: #8A8A8A;
+  --line: #E0E0E0; --line-soft: #EEEEEE;
+  --bg: #FFFFFF; --bg-soft: #FAFAFA; --badge-bg: #F2F2F2;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-soft); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { color: var(--ink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); padding: 18px 48px; }
+.site-header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+.brand-sub { font-family: var(--sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 2px; }
+.back-link { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.back-link:hover { color: var(--ink); text-decoration: none; }
+.section-nav { position: sticky; top: 65px; z-index: 99; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 48px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.section-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 28px; font-family: var(--sans); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+.section-nav a { color: var(--muted); padding: 4px 0; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.section-nav a:hover { color: var(--ink); text-decoration: none; }
+.section-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+.hero { max-width: 1200px; margin: 0 auto; padding: 72px 48px 56px; }
+.hero-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 20px; }
+.hero h1 { font-family: var(--sans); font-size: 52px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 24px; max-width: 900px; }
+.hero-desc { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink-soft); max-width: 720px; }
+.section { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; scroll-margin-top: 130px; }
+.section-header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 32px; margin-bottom: 28px; gap: 24px; }
+.section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+.section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.doc-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 28px 24px; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s; min-height: 260px; }
+.doc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.doc-badge { font-family: var(--sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); background: var(--badge-bg); padding: 5px 9px; align-self: flex-start; margin-bottom: 18px; }
+.doc-badge.medium { color: var(--ink-soft); }
+.doc-badge.light  { color: var(--muted); }
+.doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
+.doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
+.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line-soft); margin-bottom: 14px; }
+.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+.doc-link:hover { text-decoration: underline; }
+.site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
+.site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+@media (max-width: 768px) {
+  .site-header { padding: 16px 24px; }
+  .section-nav { padding: 10px 24px; }
+  .section-nav-inner { gap: 20px; font-size: 11px; }
+  .hero { padding: 48px 24px 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero-desc { font-size: 17px; }
+  .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
+  .section-header h2 { font-size: 20px; }
+  .doc-grid { grid-template-columns: 1fr; gap: 18px; }
+  .doc-card { padding: 24px; min-height: auto; }
+  .site-footer { padding: 36px 24px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">NS</a>
-            <div class="nav-links">
-                <a href="work.html">Work</a>
-                <a href="writing.html">Writing</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <div class="nav-mobile" id="mobileMenu">
-            <a href="work.html" onclick="toggleMenu()">Work</a>
-            <a href="writing.html" onclick="toggleMenu()">Writing</a>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="contact.html" onclick="toggleMenu()">Contact</a>
-        </div>
-    </nav>
 
-    <!-- Hero -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-label">SEO Content Strategist</div>
-            <h1 class="hero-title">
-                I build content systems<br>
-                that drive <em>measurable</em><br>
-                organic growth.
-            </h1>
-            <p class="hero-subtitle">
-                8+ years turning content strategy into revenue. From 7-website portfolios generating 
-                315K+ monthly visits to 16 automated workflows that cut costs by 75%. I don't just 
-                write content. I build the engine.
-            </p>
-            <div class="hero-cta">
-                <a href="work.html" class="btn btn-primary">View Case Studies</a>
-                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
-            </div>
-        </div>
-        <div class="hero-metrics">
-            <div class="metric" style="--delay: 0.1s">
-                <span class="metric-number">315K+</span>
-                <span class="metric-label">Monthly Visits Managed</span>
-            </div>
-            <div class="metric" style="--delay: 0.2s">
-                <span class="metric-number">14,800+</span>
-                <span class="metric-label">Keywords Researched</span>
-            </div>
-            <div class="metric" style="--delay: 0.3s">
-                <span class="metric-number">16</span>
-                <span class="metric-label">n8n Workflows Built</span>
-            </div>
-            <div class="metric" style="--delay: 0.4s">
-                <span class="metric-number">75%</span>
-                <span class="metric-label">Cost Reduction Achieved</span>
-            </div>
-        </div>
-    </header>
+<header class="site-header">
+  <div class="site-header-inner">
+    <div>
+      <div class="brand">Nimra Shakil</div>
+      <div class="brand-sub">Landing Pages</div>
+    </div>
+    <a class="back-link" href="../writing.html">&larr; Writing</a>
+  </div>
+</header>
 
-    <!-- Work Preview -->
-    <section class="work-preview">
-        <div class="section-header">
-            <h2>Work</h2>
-            <a href="work.html" class="section-link">View all case studies &rarr;</a>
-        </div>
+<nav class="section-nav" id="sectionNav">
+  <div class="section-nav-inner">
+    <a href="#chatpandas">ChatPandas</a>
+    <a href="#livechatltd">LiveChat Ltd</a>
+    <a href="#minimal">Minimal</a>
+    <a href="#parkingmd">ParkingMD</a>
+  </div>
+</nav>
 
-        <div class="case-grid">
-            <a href="work.html#wellnesswag" class="case-card">
-                <div class="case-card-tag">ESA &amp; Pet Wellness</div>
-                <h3>WellnessWag</h3>
-                <p>254 keyword positions improved vs. 11 declined. Built a 3-phase content strategy across 1,145 posts and 20 clusters.</p>
-                <div class="case-card-stats">
-                    <span>254 positions improved</span>
-                    <span>77K monthly visits</span>
-                </div>
-            </a>
+<section class="hero">
+  <div class="hero-eyebrow">Conversion Copy</div>
+  <h1>Eleven landing pages across four brand portfolios.</h1>
+  <p class="hero-desc">
+    Hero copy, value propositions, conversion structure, and embedded
+    forms written across the ChatPandas, LiveChat Ltd, Minimal, and
+    ParkingMD portfolios. Spans B2B SaaS, telehealth, weight loss, and
+    corporate brand work.
+  </p>
+</section>
 
-            <a href="work.html#minimal" class="case-card">
-                <div class="case-card-tag">Weight Loss &amp; Telehealth</div>
-                <h3>Minimal</h3>
-                <p>336% increase in site visits through competitor analysis, content auditing, and SEO-driven content recommendations.</p>
-                <div class="case-card-stats">
-                    <span>+336% site visits</span>
-                    <span>+407% unique visitors</span>
-                </div>
-            </a>
+<!-- ChatPandas -->
+<section class="section" id="chatpandas">
+  <div class="section-header">
+    <h2>ChatPandas</h2>
+    <span class="section-count">3 pages  &middot;  B2B SaaS, Customer Experience</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Sales Landing Page</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Sales Landing Page</h3>
+      <p class="doc-desc">
+        A future-ready B2B revenue engine sales page covering lead
+        generation, cold calling, LinkedIn messaging, and precise
+        outreach. Hard-numbers results block, credibility row, and
+        closing proof block.
+      </p>
+      <div class="doc-meta">B2B sales services  &middot;  Full-page screenshot</div>
+      <a class="doc-link" href="../chatpandas-sales.jpg" target="_blank" rel="noopener">View page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Homepage</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">ChatPandas Homepage</h3>
+      <p class="doc-desc">
+        Brand-level positioning for the B2B customer experience and
+        live chat outsourcing brand. Hero copy, services framing, and
+        trust signals across the homepage.
+      </p>
+      <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260505232212/https://www.chatpandas.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Services Page</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">ChatPandas Services</h3>
+      <p class="doc-desc">
+        Service offerings page covering managed live chat, technical
+        support, email support, and call centre operations across the
+        ChatPandas portfolio.
+      </p>
+      <div class="doc-meta">Service offerings  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260505232221/https://www.chatpandas.com/services" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+  </div>
+</section>
 
-            <a href="work.html#leafymate" class="case-card">
-                <div class="case-card-tag">Cannabis Directory</div>
-                <h3>LeafyMate</h3>
-                <p>118% organic traffic growth with 100% non-branded traffic. Managed 4,200+ ranking keywords across 5,233 pages through local SEO and content optimization.</p>
-                <div class="case-card-stats">
-                    <span>+118% organic traffic</span>
-                    <span>5,233 pages</span>
-                </div>
-            </a>
+<!-- LiveChat Ltd -->
+<section class="section" id="livechatltd">
+  <div class="section-header">
+    <h2>LiveChat Ltd</h2>
+    <span class="section-count">4 pages  &middot;  Parent Brand of ChatPandas</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Homepage</span>
+      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Corporate Site</h3>
+      <p class="doc-desc">
+        Authored homepage copy and content positioning for the parent
+        brand of ChatPandas, covering corporate messaging and primary
+        marketing pages.
+      </p>
+      <div class="doc-meta">Corporate site  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20250321032255/https://livechatltd.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Services Hub</span>
+      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Services Overview</h3>
+      <p class="doc-desc">
+        Category-level positioning across the full LiveChat Ltd
+        service portfolio, mapping managed live chat, email, call
+        centre, and technical support into a single browsable hub.
+      </p>
+      <div class="doc-meta">Services hub  &middot;  Live page</div>
+      <a class="doc-link" href="https://livechatltd.com/services/" target="_blank" rel="noopener">View page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Industries</span>
+      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Industries Overview</h3>
+      <p class="doc-desc">
+        Audience-specific positioning across the verticals LiveChat
+        Ltd serves. Copy framed around the language and pain points of
+        each industry rather than generic service descriptions.
+      </p>
+      <div class="doc-meta">Audience segmentation  &middot;  Live page</div>
+      <a class="doc-link" href="https://livechatltd.com/industries/" target="_blank" rel="noopener">View page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge light">Pricing &amp; Form</span>
+      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Pricing Page</h3>
+      <p class="doc-desc">
+        Tier breakdowns, value justification, and form fields written
+        for B2B sales-cycle prospects. Conversion copy with an embedded
+        enquiry form.
+      </p>
+      <div class="doc-meta">Pricing &amp; conversion form  &middot;  Live page</div>
+      <a class="doc-link" href="https://livechatltd.com/pricing/" target="_blank" rel="noopener">View page &rarr;</a>
+    </article>
+  </div>
+</section>
 
-            <a href="work.html#parkingmd" class="case-card">
-                <div class="case-card-tag">Telehealth</div>
-                <h3>ParkingMD</h3>
-                <p>Portfolio's highest-traffic property. Built content strategy with 6 personas, 47 keywords across 9 clusters, and competitor analysis of 4 direct competitors.</p>
-                <div class="case-card-stats">
-                    <span>155.6K monthly visits</span>
-                    <span>95% health score</span>
-                </div>
-            </a>
+<!-- Minimal -->
+<section class="section" id="minimal">
+  <div class="section-header">
+    <h2>Minimal</h2>
+    <span class="section-count">3 pages  &middot;  Weight Loss Telehealth</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Homepage</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Minimal Homepage</h3>
+      <p class="doc-desc">
+        Brand-level positioning for a semaglutide-focused weight loss
+        telehealth brand competing against Found, Calibrate, Sequence,
+        and Heally.
+      </p>
+      <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260417051220/https://joinminimal.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Semaglutide</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Semaglutide Treatment Page</h3>
+      <p class="doc-desc">
+        Direct landing page for Minimal's semaglutide offering. Hero
+        copy, clinical evidence framing, value props, and CTA structure
+        for the brand's flagship medication.
+      </p>
+      <div class="doc-meta">Medication landing page  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260505224841/https://joinminimal.com/medications/semaglutide" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+    <article class="doc-card">
+      <span class="doc-badge medium">Tirzepatide</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Tirzepatide Treatment Page</h3>
+      <p class="doc-desc">
+        Companion landing page for the tirzepatide treatment offering,
+        built on the same content architecture as the semaglutide page
+        to demonstrate the templated approach across the medication
+        portfolio.
+      </p>
+      <div class="doc-meta">Medication landing page  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260505224823/https://joinminimal.com/medications/tirzepatide" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+  </div>
+</section>
 
-            <a href="work.html#chatpandas" class="case-card">
-                <div class="case-card-tag">B2B SaaS</div>
-                <h3>ChatPandas</h3>
-                <p>18% conversion increase and 15% bounce rate reduction through a full-funnel content framework spanning TOFU, MOFU, and BOFU.</p>
-                <div class="case-card-stats">
-                    <span>+18% conversions</span>
-                    <span>-15% bounce rate</span>
-                </div>
-            </a>
-        </div>
-    </section>
+<!-- ParkingMD -->
+<section class="section" id="parkingmd">
+  <div class="section-header">
+    <h2>ParkingMD</h2>
+    <span class="section-count">1 page  &middot;  Telehealth</span>
+  </div>
+  <div class="doc-grid">
+    <article class="doc-card">
+      <span class="doc-badge">Homepage</span>
+      <p class="doc-eyebrow">ParkingMD  &middot;  Telehealth</p>
+      <h3 class="doc-title">ParkingMD Homepage</h3>
+      <p class="doc-desc">
+        Brand-level positioning for the handicap parking permit
+        telehealth service. Hero copy, value props, and conversion
+        structure for the portfolio's highest-traffic property.
+      </p>
+      <div class="doc-meta">Homepage copy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260505225045/https://parkingmd.com/" target="_blank" rel="noopener">View archived page &rarr;</a>
+    </article>
+  </div>
+</section>
 
-    <!-- What I Do -->
-    <section class="services">
-        <div class="section-header">
-            <h2>What I Do</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service">
-                <div class="service-number">01</div>
-                <h3>Content Strategy</h3>
-                <p>Data-driven content frameworks, editorial calendars, cluster mapping, and 12-month implementation roadmaps built on keyword research spanning 14,800+ keywords.</p>
-            </div>
-            <div class="service">
-                <div class="service-number">02</div>
-                <h3>AI Content Operations</h3>
-                <p>Human-in-the-loop editorial workflows for AI-generated content at scale. Quality control systems, prompt engineering, and structured QA processes across multi-model pipelines.</p>
-            </div>
-            <div class="service">
-                <div class="service-number">03</div>
-                <h3>Technical SEO</h3>
-                <p>Site audits maintaining 84-99% health scores, structured data, Core Web Vitals optimization, programmatic SEO strategies, and full technical infrastructure setup.</p>
-            </div>
-            <div class="service">
-                <div class="service-number">04</div>
-                <h3>Workflow Automation</h3>
-                <p>16 n8n workflows spanning content creation, competitive intelligence, publishing, internal linking, and performance monitoring. Replaced $1,500/month in tooling costs.</p>
-            </div>
-            <div class="service">
-                <div class="service-number">05</div>
-                <h3>AEO &amp; GEO Optimization</h3>
-                <p>Optimizing content for traditional search and AI answer engines as a unified stack. Citation share tracking via AthenaHQ across ChatGPT, Perplexity, Google AI Overviews, and Gemini. Entity-based SEO, structured data for LLM extraction, FAQ and HowTo schema, and answer-first content formatting that compounds across search surfaces.</p>
-            </div>
-        </div>
-    </section>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <strong>Nimra Shakil</strong>  &middot;  SEO Content Strategist  &middot;  Lahore, Pakistan
+    </div>
+    <div>
+      <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:nimra.shakil@gmail.com">Email</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../writing.html">Back to Writing</a>
+    </div>
+  </div>
+</footer>
 
-    <!-- Writing Samples Preview -->
-    <section class="work-preview">
-        <div class="section-header">
-            <h2>Writing &amp; Strategy</h2>
-            <a href="writing.html" class="section-link">View all writing samples &rarr;</a>
-        </div>
-        <div class="case-grid" style="max-width: var(--max-width); margin: 0 auto; padding: 0 2rem;">
-            <a href="writing.html" class="case-card">
-                <div class="case-card-tag">B2B Thought Leadership</div>
-                <h3>8 Whitepapers</h3>
-                <p>Original thought leadership for ChatPandas covering CX strategy, support models, live chat, ticket management, and human-centric business practices.</p>
-                <div class="case-card-stats">
-                    <span>ChatPandas</span>
-                    <span>B2B SaaS</span>
-                </div>
-            </a>
-            <a href="writing.html" class="case-card">
-                <div class="case-card-tag">Strategy &amp; Analysis</div>
-                <h3>9 Strategic Documents</h3>
-                <p>Competitor analyses, programmatic SEO strategies, workflow architecture docs, content audits, keyword gap analyses, and campaign structures across 7 websites.</p>
-                <div class="case-card-stats">
-                    <span>14,800+ keywords</span>
-                    <span>7 websites</span>
-                </div>
-            </a>
-        </div>
-    </section>
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('.section-nav a');
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { link, section: document.getElementById(id) };
+  }).filter(item => item.section);
+  function updateActive() {
+    const scrollPos = window.scrollY + 200;
+    let currentActive = sections[0];
+    for (const item of sections) {
+      if (item.section.offsetTop <= scrollPos) currentActive = item;
+    }
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (currentActive) currentActive.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-left">
-                <span class="footer-logo">Nimra Shakil</span>
-                <p>SEO Content Strategist<br>Lahore, Pakistan</p>
-            </div>
-            <div class="footer-right">
-                <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="mailto:nimra.shakil@gmail.com">Email</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="main.js"></script>
 </body>
 </html>
