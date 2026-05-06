@@ -41,59 +41,71 @@ a:hover { text-decoration: underline; }
 .section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
 .section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
-/* Instagram Carousels */
-.carousel-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+/* Instagram Carousels - horizontal strip per campaign */
+.carousel-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
 }
-.carousel-cover {
-  position: relative;
-  aspect-ratio: 1 / 1;
+.carousel-row { width: 100%; }
+.carousel-row-header {
+  margin-bottom: 18px;
+  padding: 0 4px;
+}
+.carousel-row-title {
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.carousel-row-context {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 760px;
+}
+.carousel-row-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding: 4px 0 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.carousel-row-strip::-webkit-scrollbar { height: 6px; }
+.carousel-row-strip::-webkit-scrollbar-track { background: transparent; }
+.carousel-row-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.carousel-row-strip::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+.carousel-row-slide {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 280px;
   background: var(--bg-soft);
   border: 1px solid var(--line);
   overflow: hidden;
   cursor: pointer;
   padding: 0;
-  font-family: inherit;
-  display: block;
-  width: 100%;
+  position: relative;
+  scroll-snap-align: start;
   transition: border-color 0.15s, transform 0.15s;
+  font-family: inherit;
 }
-.carousel-cover:hover { border-color: var(--ink); transform: translateY(-2px); }
-.carousel-cover img {
+.carousel-row-slide:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.carousel-row-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-.carousel-cover-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 18px 16px 12px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
-  color: white;
-  text-align: left;
-}
-.carousel-cover-title {
-  display: block;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  line-height: 1.25;
-  margin-bottom: 4px;
-}
-.carousel-cover-count {
-  display: block;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 500;
-  opacity: 0.85;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 /* Carousel modal (full-screen viewer) */
@@ -243,8 +255,10 @@ a:hover { text-decoration: underline; }
   .hero-desc { font-size: 17px; }
   .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
   .section-header h2 { font-size: 20px; }
-  .carousel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .carousel-cover-title { font-size: 12px; }
+  .carousel-rows { gap: 40px; }
+  .carousel-row-title { font-size: 16px; }
+  .carousel-row-context { font-size: 14px; }
+  .carousel-row-slide { width: 220px; height: 220px; }
   .carousel-modal { padding: 16px 12px 20px; }
   .carousel-modal-image { max-height: 60vh; }
   .carousel-modal-prev,
@@ -297,7 +311,7 @@ a:hover { text-decoration: underline; }
     <h2>Instagram Carousels</h2>
     <span class="section-count">Multi-slide social campaigns  &middot;  ChatPandas</span>
   </div>
-  <div class="carousel-grid" id="carouselGrid"></div>
+  <div class="carousel-rows" id="carouselRows"></div>
 </section>
 
 <!-- Instagram Reels -->
@@ -499,23 +513,46 @@ const carouselsData = [
 ];
 
 // =====================================================
-// Render carousel covers in the grid
+// Render carousels as horizontal strips with header
 // =====================================================
 (function() {
-  const grid = document.getElementById('carouselGrid');
-  if (!grid) return;
+  const container = document.getElementById('carouselRows');
+  if (!container) return;
   carouselsData.forEach(c => {
-    const btn = document.createElement('button');
-    btn.className = 'carousel-cover';
-    btn.setAttribute('aria-label', 'Open carousel: ' + c.title);
-    btn.innerHTML =
-      '<img src="' + c.slides[0] + '" alt="' + c.title + ' cover" loading="lazy">' +
-      '<div class="carousel-cover-overlay">' +
-        '<span class="carousel-cover-title">' + c.title + '</span>' +
-        '<span class="carousel-cover-count">' + c.slides.length + ' slides</span>' +
-      '</div>';
-    btn.addEventListener('click', () => openCarousel(c));
-    grid.appendChild(btn);
+    const row = document.createElement('article');
+    row.className = 'carousel-row';
+
+    const header = document.createElement('header');
+    header.className = 'carousel-row-header';
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'carousel-row-title';
+    titleEl.textContent = c.title;
+    header.appendChild(titleEl);
+    if (c.context) {
+      const ctx = document.createElement('p');
+      ctx.className = 'carousel-row-context';
+      ctx.textContent = c.context;
+      header.appendChild(ctx);
+    }
+    row.appendChild(header);
+
+    const strip = document.createElement('div');
+    strip.className = 'carousel-row-strip';
+    c.slides.forEach((url, idx) => {
+      const slide = document.createElement('button');
+      slide.className = 'carousel-row-slide';
+      slide.setAttribute('aria-label', 'Open ' + c.title + ' - slide ' + (idx + 1) + ' of ' + c.slides.length);
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = c.title + ' slide ' + (idx + 1);
+      img.loading = 'lazy';
+      slide.appendChild(img);
+      slide.addEventListener('click', () => openCarousel(c, idx));
+      strip.appendChild(slide);
+    });
+    row.appendChild(strip);
+
+    container.appendChild(row);
   });
 })();
 
@@ -530,9 +567,9 @@ const modalContext = document.getElementById('modalContext');
 let currentCarousel = null;
 let currentIndex = 0;
 
-function openCarousel(c) {
+function openCarousel(c, startIdx) {
   currentCarousel = c;
-  currentIndex = 0;
+  currentIndex = (typeof startIdx === 'number' && startIdx >= 0 && startIdx < c.slides.length) ? startIdx : 0;
   modalTitle.textContent = c.title;
   modalContext.textContent = c.context;
   updateSlide();
