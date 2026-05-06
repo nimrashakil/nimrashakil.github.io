@@ -189,17 +189,27 @@ a:hover { text-decoration: underline; }
   gap: 24px;
 }
 .doc-card {
-  background: var(--bg);
+  background: #EDE8DD;
   border: 1px solid var(--line);
   padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s, background 0.18s;
   min-height: 260px;
+  position: relative;
 }
 .doc-card:hover {
   border-color: var(--ink);
-  transform: translateY(-2px);
+  background: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-decoration: none;
+}
+.doc-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 .doc-badge {
   font-family: var(--sans);
@@ -247,7 +257,7 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
   letter-spacing: 0.02em;
   padding-top: 14px;
-  border-top: 1px solid var(--line-soft);
+  border-top: 1px solid var(--line);
   margin-bottom: 14px;
 }
 .doc-link {
@@ -336,7 +346,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">2 documents</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/delenta-email-sequences.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Email Funnel</span>
       <p class="doc-eyebrow">Delenta</p>
       <h3 class="doc-title">Productivity Coaching Event Email Sequence</h3>
@@ -348,9 +358,9 @@ a:hover { text-decoration: underline; }
         specification.
       </p>
       <div class="doc-meta">3-email sequence  ·  14-day funnel  ·  8 pages</div>
-      <a class="doc-link" href="pdfs/delenta-email-sequences.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/classhare-sales-landing-page.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Long-form Sales Page</span>
       <p class="doc-eyebrow">ClasShare</p>
       <h3 class="doc-title">E-Learning Sales Landing Page</h3>
@@ -362,8 +372,8 @@ a:hover { text-decoration: underline; }
         conversion CTAs throughout.
       </p>
       <div class="doc-meta">Silver / Gold / Platinum tiers  ·  5 pages</div>
-      <a class="doc-link" href="pdfs/classhare-sales-landing-page.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
