@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogs | Nimra Shakil</title>
+<meta name="description" content="Twenty-nine published blog posts across five brand portfolios: Minimal (weight loss telehealth), LeafyDoc (medical cannabis), LeafyMate (cannabis directory), WellnessWag (ESA & pet wellness), and ChatPandas (B2B SaaS). Each piece tagged by funnel stage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root {
+  --ink: #0F0F0F; --ink-soft: #1F1F1F;
+  --muted: #666666; --muted-soft: #8A8A8A;
+  --line: #E0E0E0; --line-soft: #EEEEEE;
+  --bg: #FFFFFF; --bg-soft: #FAFAFA; --badge-bg: #F2F2F2;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-soft); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { color: var(--ink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); padding: 18px 48px; }
+.site-header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+.brand-sub { font-family: var(--sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 2px; }
+.back-link { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.back-link:hover { color: var(--ink); text-decoration: none; }
+
+.section-nav { position: sticky; top: 65px; z-index: 99; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 48px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.section-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 28px; font-family: var(--sans); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+.section-nav a { color: var(--muted); padding: 4px 0; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.section-nav a:hover { color: var(--ink); text-decoration: none; }
+.section-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+.hero { max-width: 1200px; margin: 0 auto; padding: 72px 48px 56px; }
+.hero-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 20px; }
+.hero h1 { font-family: var(--sans); font-size: 52px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 24px; max-width: 900px; }
+.hero-desc { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink-soft); max-width: 720px; }
+
+.section { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; scroll-margin-top: 130px; }
+.section-header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 32px; margin-bottom: 28px; gap: 24px; }
+.section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+.section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.doc-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 28px 24px; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s; min-height: 260px; }
+.doc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+.doc-card.featured {
+  grid-column: span 2;
+  border: 2px solid var(--ink);
+  background: var(--bg-soft);
+}
+.doc-card.featured:hover { transform: translateY(-2px); }
+.doc-pillar-tag {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--ink); margin-bottom: 10px; display: block;
+}
+.doc-card.featured .doc-title { font-size: 22px; }
+
+.doc-badge { font-family: var(--sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); background: var(--badge-bg); padding: 5px 9px; align-self: flex-start; margin-bottom: 18px; }
+.doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
+.doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
+.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line-soft); margin-bottom: 14px; }
+.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+.doc-link:hover { text-decoration: underline; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
+.site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+
+@media (max-width: 768px) {
+  .site-header { padding: 16px 24px; }
+  .section-nav { padding: 10px 24px; }
+  .section-nav-inner { gap: 20px; font-size: 11px; }
+  .hero { padding: 48px 24px 40px; }
+  .hero h1 { font-size: 36px; }
+  .hero-desc { font-size: 17px; }
+  .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
+  .section-header h2 { font-size: 20px; }
+  .doc-grid { grid-template-columns: 1fr; gap: 18px; }
+  .doc-card { padding: 24px; min-height: auto; }
+  .doc-card.featured { grid-column: span 1; padding: 24px; }
+  .doc-card.featured .doc-title { font-size: 19px; }
+  .site-footer { padding: 36px 24px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div>
+      <div class="brand">Nimra Shakil</div>
+      <div class="brand-sub">Blogs</div>
+    </div>
+    <a class="back-link" href="../writing.html">&larr; Writing</a>
+  </div>
+</header>
+
+<nav class="section-nav" id="sectionNav">
+  <div class="section-nav-inner">
+    <a href="#minimal">Minimal</a>
+    <a href="#leafydoc">LeafyDoc</a>
+    <a href="#leafymate">LeafyMate</a>
+    <a href="#wellnesswag">WellnessWag</a>
+    <a href="#chatpandas">ChatPandas</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Published Content</div>
+  <h1>Twenty-nine blog posts across five brand portfolios.</h1>
+  <p class="hero-desc">
+    Long-form articles, comparison pieces, troubleshooting guides, and
+    tactical content published across weight loss telehealth, medical
+    cannabis, cannabis directory, ESA and pet wellness, and B2B SaaS
+    verticals. Each piece tagged by funnel stage (TOFU, MOFU, BOFU)
+    with brand and vertical context.
+  </p>
+</section>
+
+<!-- Minimal -->
+<section class="section" id="minimal">
+  <div class="section-header">
+    <h2>Minimal</h2>
+    <span class="section-count">11 articles  &middot;  Weight Loss Telehealth</span>
+  </div>
+  <div class="doc-grid">
+
+    <article class="doc-card featured">
+      <span class="doc-pillar-tag">&#9733; Pillar piece anchoring the cluster strategy</span>
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Inside the Semaglutide Company: Innovations and Challenges in Weight Management</h3>
+      <p class="doc-desc">
+        Cluster-base pillar piece anchoring Minimal's semaglutide content
+        strategy. Industry overview covering the Novo Nordisk monopoly,
+        market controversies, supply strain dynamics, and the rising
+        competitive landscape across GLP-1 weight management drugs.
+      </p>
+      <div class="doc-meta">Pillar piece  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260417040648/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Finside-the-semaglutide-company" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Still Hungry on Semaglutide? Tips to Tame Your Appetite</h3>
+      <p class="doc-desc">
+        Troubleshooting piece for active semaglutide users still
+        experiencing hunger. Covers dose timing, food choices, sleep and
+        stress factors, real Reddit user experiences, and when to escalate
+        dose adjustments to a healthcare provider.
+      </p>
+      <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031314/https%3A%2F%2Fjoinminimal.com%2Fnutritional-wisdom%2Fstill-hungry-on-semaglutide" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Wegovy vs Ozempic: Which One Leads to Sustainable Weight Loss?</h3>
+      <p class="doc-desc">
+        Direct head-to-head medication comparison piece. Covers semaglutide
+        dosage differences, clinical trial weight loss outcomes, side effect
+        intensity profiles, monthly cost without insurance, savings programs,
+        and Reddit user experiences with switching between the two.
+      </p>
+      <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418034806/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Fwegovy-vs-ozempic" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Eli Lilly's Oral GLP-1 Pill: A Breakthrough in Weight Loss Care</h3>
+      <p class="doc-desc">
+        Comparison piece on Eli Lilly's oral GLP-1 pill (Orforglipron)
+        versus weekly injectable medications. Covers trial results, dosing
+        structures, safety considerations, and the candidate profile for
+        switching from injectables to oral therapy.
+      </p>
+      <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418025606/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Feli-lilly-oral-glp-1-pill" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Semaglutide and Pregnancy: Safety, Risks, and Medical Guidelines</h3>
+      <p class="doc-desc">
+        Sensitive-topic piece on semaglutide use during pregnancy planning.
+        Covers safety profile, medical guidelines for use before and during
+        pregnancy, alternative weight management options, and how to
+        navigate the conversation with a healthcare provider.
+      </p>
+      <div class="doc-meta">Semaglutide cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418030145/https%3A%2F%2Fjoinminimal.com%2Fwomens-health%2Fsemaglutide-pregnancy" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Skip The Waiting Room: Best Online Weight Loss Programs</h3>
+      <p class="doc-desc">
+        Decision-stage comparison piece on online weight loss programs
+        versus traditional clinics. Covers GLP-1 medication access
+        (semaglutide, Ozempic), personalization quality, cost transparency,
+        insurance coverage, and integrated medical-nutrition-fitness service models.
+      </p>
+      <div class="doc-meta">Telehealth cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031545/https%3A%2F%2Fjoinminimal.com%2Fweight-loss-medications-explained%2Fbest-online-weight-loss-programs" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Transform Your Body Without Leaving Home: Telehealth Weight Loss</h3>
+      <p class="doc-desc">
+        Research-stage piece on telehealth weight loss programs. Covers
+        eligibility criteria (BMI thresholds, medical condition triggers),
+        short-term versus long-term results expectations, GLP-1 medication
+        access through telehealth, and integrated care models for
+        sustainable weight management.
+      </p>
+      <div class="doc-meta">Telehealth cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031633/https%3A%2F%2Fjoinminimal.com%2Fholistic-weight-loss%2Ftelehealth-weight-loss-programs" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">Weight Loss Trends 2025: Cutting-Edge Innovations and Strategies</h3>
+      <p class="doc-desc">
+        Trend roundup covering personalized nutrition, intermittent fasting,
+        HIIT programming, mindfulness and mental health, gut probiotics, and
+        emerging supplement and functional food categories shaping weight
+        management in 2025.
+      </p>
+      <div class="doc-meta">Trend piece  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031355/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fweight-loss-trends-2025" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">AI in Personalized Nutrition: How Technology Crafts Tailored Diet Plans In 2025</h3>
+      <p class="doc-desc">
+        Trend piece on AI-powered nutrition. Covers machine learning
+        algorithms in diet planning, data inputs (food logs, health
+        records, fitness data, genetics, preferences), nanotechnology in
+        supplement delivery, and the trajectory of adaptive meal planning systems.
+      </p>
+      <div class="doc-meta">Trend piece  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031706/https%3A%2F%2Fjoinminimal.com%2Ftrending-topics%2Fai-in-personalized-nutrition" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">From Stiff to Supple: Your Guide to Hamstring Stretching and Flexibility</h3>
+      <p class="doc-desc">
+        Mobility and flexibility piece anchored in hamstring tightness and
+        its downstream effects on lower back pain, knee instability, and
+        postural alignment. Covers nervous system adaptation, sarcomerogenesis,
+        and progressive stretching techniques with daily integration strategies.
+      </p>
+      <div class="doc-meta">Wellness cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418034702/https%3A%2F%2Fjoinminimal.com%2Flifestyle-balance%2Fhamstring-stretching-flexibility-guide" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
+      <h3 class="doc-title">What Are The Best Rope Flow Training Programs?</h3>
+      <p class="doc-desc">
+        Niche fitness piece on rope flow training. Covers
+        beginner-versus-advanced curricula, cardiovascular and strength
+        applications, explosive power development, mobility and stability
+        gains, posture, and stress release.
+      </p>
+      <div class="doc-meta">Fitness cluster  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260418031523/https%3A%2F%2Fjoinminimal.com%2Ffitness-journeys%2Fbest-rope-flow-training-programs" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- LeafyDoc -->
+<section class="section" id="leafydoc">
+  <div class="section-header">
+    <h2>LeafyDoc</h2>
+    <span class="section-count">6 articles  &middot;  Medical Cannabis</span>
+  </div>
+  <div class="doc-grid">
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">Best Medical Marijuana Doctors in New Jersey</h3>
+      <p class="doc-desc">
+        High-intent local search piece for New Jersey medical marijuana
+        patients. Profiles licensed cannabis practitioners across the state
+        with certification process context and booking CTAs.
+        Classic local-search-optimized content.
+      </p>
+      <div class="doc-meta">Local SEO  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506021540/https://leafydoc.com/best-new-jersey-medical-marijuana-doctors" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">Medical Cannabis Card Renewal Made Easy | Avoid These Mistakes</h3>
+      <p class="doc-desc">
+        Renewal-stage guide for existing medical cannabis cardholders.
+        Covers state-by-state documentation differences, fee structures,
+        physician recertification timelines, common application mistakes,
+        and a renewal options comparison table.
+      </p>
+      <div class="doc-meta">Renewal flow  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506021513/https://leafydoc.com/medical-cannabis-card-renewal-guide" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">How to Get a Medical Marijuana Card Online: A Complete Guide to Certification</h3>
+      <p class="doc-desc">
+        Telehealth-focused certification primer. Covers required documents,
+        the online evaluation process, what to expect during virtual doctor
+        visits, qualifying conditions across states, certification platform
+        comparison, and renewal cycles.
+      </p>
+      <div class="doc-meta">Certification flow  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506022017/https://leafydoc.com/how-to-get-medical-marijuana-card-online" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">The Future of Medicinal Use: Insights into 2025 Cannabis Policy Reform Legislation</h3>
+      <p class="doc-desc">
+        Industry policy piece on cannabis reform. Covers federal versus
+        state legislative conflicts, the DEA reclassification of cannabis
+        to Schedule III, medical research developments, economic and tax
+        revenue impact, and patient advocacy perspectives.
+      </p>
+      <div class="doc-meta">Policy &amp; advocacy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506021535/https://leafydoc.com/2025-cannabis-policy-reform" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">Cannabis Honey 101: Everything You Need to Know Before You Start</h3>
+      <p class="doc-desc">
+        Comprehensive culinary and therapeutic primer on cannabis-infused
+        honey. Covers therapeutic effects, culinary applications, the CBD
+        versus THC honey distinction, two infusion methods (slow cooker,
+        double boiler), potency calculation, and creative uses across
+        beverages and cooking.
+      </p>
+      <div class="doc-meta">Lifestyle &amp; cooking  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506021855/https://leafydoc.com/cannabis-honey-guide" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">LeafyDoc  &middot;  Medical Cannabis</p>
+      <h3 class="doc-title">How to Make THC Powder: A Step-by-Step Guide for Beginners</h3>
+      <p class="doc-desc">
+        Cannabis lifestyle and extraction guide. Covers THC powder versus
+        THC isolate, the entourage effect, three extraction methods
+        (solvent-based, rosin press, CO2), step-by-step home preparation
+        (decarboxylation, oil infusion, drying, grinding, storage), and
+        dosage and side-effect guidelines.
+      </p>
+      <div class="doc-meta">Lifestyle &amp; extraction  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506021857/https://leafydoc.com/how-to-make-thc-powder" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- LeafyMate -->
+<section class="section" id="leafymate">
+  <div class="section-header">
+    <h2>LeafyMate</h2>
+    <span class="section-count">4 articles  &middot;  Cannabis Directory</span>
+  </div>
+  <div class="doc-grid">
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
+      <h3 class="doc-title">Your Ultimate Guide to Finding Local Cannabis Dispensaries</h3>
+      <p class="doc-desc">
+        Buyer-intent guide for users actively searching for a local
+        dispensary. Covers vetting criteria, what to look for in a
+        dispensary, and a competitive comparison against alternative platforms.
+      </p>
+      <div class="doc-meta">Buyer-intent  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506013855/https://leafymate.com/resources/understanding-dispensaries/find-local-cannabis-dispensaries" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
+      <h3 class="doc-title">How to Get Your Medical Cannabis Card Fast and Legally</h3>
+      <p class="doc-desc">
+        Step-by-step actionable guide for users ready to apply for a
+        medical cannabis card. Covers eligibility, the application process,
+        where the card is valid, and best strains for medical use.
+      </p>
+      <div class="doc-meta">Action-stage how-to  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506013722/https%3A%2F%2Fleafymate.com%2Fresources%2Fcannabis-101%2Fget-medical-cannabis-card" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
+      <h3 class="doc-title">Top Cannabis and CBD Products Worth Trying: From Flowers to Edibles</h3>
+      <p class="doc-desc">
+        Product comparison piece across flower, pre-rolls, CBD oils, and
+        edibles. Covers the medical-versus-recreational distinction, label
+        literacy, and frameworks for informed purchasing decisions.
+      </p>
+      <div class="doc-meta">Product consideration  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506013812/https%3A%2F%2Fleafymate.com%2Fresources%2Fchoosing-the-right-cannabis-products%2Fbest-cannabis-cbd-products" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">LeafyMate  &middot;  Cannabis Directory</p>
+      <h3 class="doc-title">2025 Cannabis Policy Reform Legislation: What Advocates Need to Know</h3>
+      <p class="doc-desc">
+        Advocate-targeted policy piece on cannabis reform. Covers
+        state-by-state legalization breakdowns, key federal legislation
+        (Cannabis Regulation and Expungement Act, SAFER Banking Act 2.0,
+        Cannabis Tax Equity Act), advocacy strategies, and economic and
+        social-justice framing.
+      </p>
+      <div class="doc-meta">Advocacy &amp; policy  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506013824/https%3A%2F%2Fleafymate.com%2Fresources%2Fadvocacy-and-legislation%2F2025-cannabis-policy-reform" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- WellnessWag -->
+<section class="section" id="wellnesswag">
+  <div class="section-header">
+    <h2>WellnessWag</h2>
+    <span class="section-count">4 articles  &middot;  ESA &amp; Pet Wellness</span>
+  </div>
+  <div class="doc-grid">
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
+      <h3 class="doc-title">5 Simple Steps to Get Your Legitimate ESA Letter Online</h3>
+      <p class="doc-desc">
+        Conversion-stage guide for users ready to obtain an ESA letter.
+        Covers eligibility evaluation, scam-avoidance signals, qualifying
+        mental health conditions, the 5-step online process (assessment,
+        telehealth consultation, letter issuance, housing submission,
+        renewal support), and a Wellness Wag versus competitor comparison.
+      </p>
+      <div class="doc-meta">Conversion path  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506000014/https%3A%2F%2Fwellnesswag.com%2Fblog%2Flegitimate-esa-letter-online" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
+      <h3 class="doc-title">The Truth About ESA Registration Services: Legal Facts vs. Common Myths</h3>
+      <p class="doc-desc">
+        Research-stage myth-busting piece on emotional support animal
+        documentation. Covers the absence of any federal ESA registry, why
+        ID cards and vests carry no legal weight, the distinction between
+        ESAs and service animals, and the only document that legally
+        matters: a valid ESA letter from a licensed mental health professional.
+      </p>
+      <div class="doc-meta">Myth-busting  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506000006/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fesa-registration-services-myths-and-facts" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
+      <h3 class="doc-title">Discover the 7 Best Emotional Support Dog Breeds for Anxiety and Depression</h3>
+      <p class="doc-desc">
+        Awareness-stage listicle on emotional support dog breeds for mental
+        health. Profiles seven breeds (Labrador, Golden Retriever,
+        Cavalier King Charles Spaniel, Poodle, Bichon Frise, Shih Tzu,
+        French Bulldog) with temperament and lifestyle-fit guidance, plus
+        context on legal recognition under the FHA and ADA.
+      </p>
+      <div class="doc-meta">Listicle  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506000113/https%3A%2F%2Fwellnesswag.com%2Fblog%2Fbest-emotional-support-dog-breeds-for-anxiety-depression" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">WellnessWag  &middot;  ESA, Pet Wellness</p>
+      <h3 class="doc-title">Best Pets for College Students</h3>
+      <p class="doc-desc">
+        Audience-targeted lifestyle piece on pets suited to college life.
+        Covers stress relief and mental health benefits of pet ownership,
+        then profiles seven pet options (birds, hamsters, fish, mice,
+        small breed dogs, guinea pigs, hermit crabs) with space, care, and
+        budget considerations for dorm and apartment living.
+      </p>
+      <div class="doc-meta">Audience-specific lifestyle  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506000045/https://wellnesswag.com/blog/best-pets-for-college-students" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ChatPandas -->
+<section class="section" id="chatpandas">
+  <div class="section-header">
+    <h2>ChatPandas</h2>
+    <span class="section-count">4 articles  &middot;  B2B SaaS, Customer Experience</span>
+  </div>
+  <div class="doc-grid">
+
+    <article class="doc-card">
+      <span class="doc-badge">BOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">How Outsourcing Your IT Helpdesk Could Be a Game-Changer for Your Business</h3>
+      <p class="doc-desc">
+        Decision-stage piece on IT helpdesk outsourcing for B2B buyers.
+        Covers cost efficiency, expertise access, scalability, security
+        and compliance, and 24/7 support, anchored by named case studies
+        (Cisco's 30% cost reduction, Hilton's 40% cost reduction with 25%
+        FCR improvement) and concrete market data.
+      </p>
+      <div class="doc-meta">Case-study driven  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506024309/https://www.chatpandas.com/insight/outsourcing-your-it-helpdesk" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">The Role of Live Chat Agents in Modern Customer Service: Why Are They Essential</h3>
+      <p class="doc-desc">
+        Research-stage piece building the business case for live chat
+        support. Covers customer expectation data (Zendesk's 92%
+        satisfaction rate for live chat), cost-effectiveness compared to
+        phone support, engagement and conversion lift (20% conversion
+        increase, 3x purchase likelihood), and customer insight applications.
+      </p>
+      <div class="doc-meta">Business case  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506024214/https://www.chatpandas.com/insight/live-chat-agents-in-customer-service" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">MOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Enhancing Customer Service: 8 Key Call Center KPIs to Monitor and Improve</h3>
+      <p class="doc-desc">
+        Operational tactical piece for call center operators and CX
+        leaders. Covers eight critical KPIs (First Call Resolution,
+        Average Handle Time, CSAT, Service Level, Abandonment Rate, Agent
+        Occupancy, Net Promoter Score, Call Quality) with definitions,
+        strategic importance, and industry benchmarks for each.
+      </p>
+      <div class="doc-meta">Operational tactical  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506024347/https://www.chatpandas.com/insight/key-call-center-kpis" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+    <article class="doc-card">
+      <span class="doc-badge">TOFU</span>
+      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
+      <h3 class="doc-title">Customer Service Trends to Watch in 2025: Insights and Predictions</h3>
+      <p class="doc-desc">
+        Industry trend piece on the future of customer service in BPO.
+        Covers AI-driven customer insights, hyper-personalization,
+        expanding self-service, journey orchestration, the evolution from
+        account managers to value consultants, NLP-powered emotional
+        analytics, and social media's role in customer service.
+      </p>
+      <div class="doc-meta">Industry trends  &middot;  Archived on Wayback Machine</div>
+      <a class="doc-link" href="https://web.archive.org/web/20260506024153/https://www.chatpandas.com/insight/customer-service-trends-to-watch-in-2025" target="_blank" rel="noopener">Read article &rarr;</a>
+    </article>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <strong>Nimra Shakil</strong>  &middot;  SEO Content Strategist  &middot;  Lahore, Pakistan
+    </div>
+    <div>
+      <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:nimra.shakil@gmail.com">Email</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../writing.html">Back to Writing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('.section-nav a');
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { link, section: document.getElementById(id) };
+  }).filter(item => item.section);
+  function updateActive() {
+    const scrollPos = window.scrollY + 200;
+    let currentActive = sections[0];
+    for (const item of sections) {
+      if (item.section.offsetTop <= scrollPos) currentActive = item;
+    }
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (currentActive) currentActive.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
+
+</body>
+</html>
