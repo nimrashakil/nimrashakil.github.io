@@ -158,7 +158,7 @@ a:hover { text-decoration: underline; }
 }
 .featured-deck-inner {
   border: 1px solid var(--line);
-  background: var(--bg-soft);
+  background: #EDE8DD;
   padding: 36px 40px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -269,17 +269,27 @@ a:hover { text-decoration: underline; }
   gap: 24px;
 }
 .doc-card {
-  background: var(--bg);
+  background: #EDE8DD;
   border: 1px solid var(--line);
   padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s, background 0.18s;
   min-height: 260px;
+  position: relative;
 }
 .doc-card:hover {
   border-color: var(--ink);
-  transform: translateY(-2px);
+  background: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-decoration: none;
+}
+.doc-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 .doc-badge {
   font-family: var(--sans);
@@ -333,7 +343,7 @@ a:hover { text-decoration: underline; }
 .doc-link {
   font-family: var(--sans);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.02em;
 }
@@ -449,7 +459,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">1 document</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/minimal-semaglutide-competitor-analysis.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Competitor Analysis</span>
       <p class="doc-eyebrow">Minimal</p>
       <h3 class="doc-title">Semaglutide Page Competitor Audit</h3>
@@ -460,8 +470,8 @@ a:hover { text-decoration: underline; }
         internal linking.
       </p>
       <div class="doc-meta">+336% site visits  ·  5 pages</div>
-      <a class="doc-link" href="pdfs/minimal-semaglutide-competitor-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -472,7 +482,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">2 documents</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/parkingmd-blog-topics-competitor-analysis.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Content Architecture</span>
       <p class="doc-eyebrow">ParkingMD</p>
       <h3 class="doc-title">Blog Topics and Competitor Analysis</h3>
@@ -482,9 +492,9 @@ a:hover { text-decoration: underline; }
         content architecture with nine production-ready outlines.
       </p>
       <div class="doc-meta">10 topics evaluated  ·  5 pages</div>
-      <a class="doc-link" href="pdfs/parkingmd-blog-topics-competitor-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/parkingmd-campaign-structure.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Paid Search</span>
       <p class="doc-eyebrow">ParkingMD</p>
       <h3 class="doc-title">Google Ads Campaign Structure</h3>
@@ -494,8 +504,8 @@ a:hover { text-decoration: underline; }
         insertion, and a Manual CPC to Target CPA $70 bidding progression.
       </p>
       <div class="doc-meta">4 ad groups  ·  $70 target CPA  ·  6 pages</div>
-      <a class="doc-link" href="pdfs/parkingmd-campaign-structure.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -506,7 +516,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">3 documents</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/ww-content-analysis.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Content Audit</span>
       <p class="doc-eyebrow">Wellness Wag</p>
       <h3 class="doc-title">Content Analysis and Strategic Summary</h3>
@@ -517,9 +527,9 @@ a:hover { text-decoration: underline; }
         vertical.
       </p>
       <div class="doc-meta">1,145 posts audited  ·  7 pages</div>
-      <a class="doc-link" href="pdfs/ww-content-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/ww-affiliate-program-growth-plan.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Program Strategy</span>
       <p class="doc-eyebrow">Wellness Wag</p>
       <h3 class="doc-title">Affiliate Program Growth Plan</h3>
@@ -530,9 +540,9 @@ a:hover { text-decoration: underline; }
         enablement-over-recruitment insight.
       </p>
       <div class="doc-meta">30+ ideas synthesised  ·  7 pages</div>
-      <a class="doc-link" href="pdfs/ww-affiliate-program-growth-plan.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/affiliate-training-workshops.pdf" target="_blank" rel="noopener">
       <span class="doc-badge light">Enablement Strategy</span>
       <p class="doc-eyebrow">Wellness Wag + Minimal</p>
       <h3 class="doc-title">Affiliate Training and Development</h3>
@@ -542,8 +552,8 @@ a:hover { text-decoration: underline; }
         topic areas, and KPI dimensions with partner-led content sourcing.
       </p>
       <div class="doc-meta">Cross-brand framework  ·  3 pages</div>
-      <a class="doc-link" href="pdfs/affiliate-training-workshops.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -554,7 +564,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">1 document</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/leafyrx-patient-education-guide.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Content Architecture</span>
       <p class="doc-eyebrow">LeafyRX</p>
       <h3 class="doc-title">Patient Education Guide Architecture</h3>
@@ -565,8 +575,8 @@ a:hover { text-decoration: underline; }
         peer-reviewed clinical citations.
       </p>
       <div class="doc-meta">14 sections  ·  20+ citations  ·  14 pages</div>
-      <a class="doc-link" href="pdfs/leafyrx-patient-education-guide.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -577,7 +587,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">2 documents</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/keyword-gap-analysis.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Keyword Research</span>
       <p class="doc-eyebrow">Leafy Rewards</p>
       <h3 class="doc-title">Keyword Gap Analysis</h3>
@@ -587,9 +597,9 @@ a:hover { text-decoration: underline; }
         with topical opportunity scoring and priority grouping.
       </p>
       <div class="doc-meta">14,804 keywords  ·  9 clusters  ·  4 pages</div>
-      <a class="doc-link" href="pdfs/keyword-gap-analysis.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/cannabis-legalization-pages-architecture.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Programmatic SEO</span>
       <p class="doc-eyebrow">Leafy Rewards</p>
       <h3 class="doc-title">Cannabis Legalization Pages Architecture</h3>
@@ -600,8 +610,8 @@ a:hover { text-decoration: underline; }
         category rewards.
       </p>
       <div class="doc-meta">3 tiers  ·  50 states  ·  7 pages</div>
-      <a class="doc-link" href="pdfs/cannabis-legalization-pages-architecture.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -612,7 +622,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">1 document</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/trt-blog-series-outline.pdf" target="_blank" rel="noopener">
       <span class="doc-badge medium">Content Architecture</span>
       <p class="doc-eyebrow">TRT Telehealth</p>
       <h3 class="doc-title">TRT Blog Series Outline</h3>
@@ -623,8 +633,8 @@ a:hover { text-decoration: underline; }
         explainers and forum anecdotes.
       </p>
       <div class="doc-meta">2 parts  ·  4 pillar pieces  ·  5 pages</div>
-      <a class="doc-link" href="pdfs/trt-blog-series-outline.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
@@ -635,7 +645,7 @@ a:hover { text-decoration: underline; }
     <span class="section-count">2 documents</span>
   </div>
   <div class="doc-grid">
-    <article class="doc-card">
+    <a class="doc-card" href="pdfs/ai-content-production.pdf" target="_blank" rel="noopener">
       <span class="doc-badge">Workflow Architecture</span>
       <p class="doc-eyebrow">Cross Even Operations</p>
       <h3 class="doc-title">AI Content Production System</h3>
@@ -646,9 +656,9 @@ a:hover { text-decoration: underline; }
         websites, delivering a 75% cost reduction.
       </p>
       <div class="doc-meta">16 workflows  ·  75% cost reduction  ·  11 pages</div>
-      <a class="doc-link" href="pdfs/ai-content-production.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
-    <article class="doc-card">
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/wp-development-workflow-standards.pdf" target="_blank" rel="noopener">
       <span class="doc-badge light">Development Operations</span>
       <p class="doc-eyebrow">Cross Even Operations</p>
       <h3 class="doc-title">WordPress Development Workflow Standards</h3>
@@ -658,8 +668,8 @@ a:hover { text-decoration: underline; }
         reproducible migration and code-location conventions.
       </p>
       <div class="doc-meta">6 issue areas  ·  7 sites  ·  4 pages</div>
-      <a class="doc-link" href="pdfs/wp-development-workflow-standards.pdf" target="_blank" rel="noopener">Read document →</a>
-    </article>
+      <span class="doc-link">Read document →</span>
+    </a>
   </div>
 </section>
 
