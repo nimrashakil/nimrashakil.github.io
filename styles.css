@@ -75,7 +75,7 @@ img {
     height: var(--nav-height);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .nav-logo {
@@ -91,32 +91,34 @@ img {
 }
 
 .nav-links a {
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text);
     transition: color 0.2s ease;
     position: relative;
+    padding-bottom: 4px;
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 1px;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    background: var(--border-hover);
+    transition: background 0.25s ease, height 0.25s ease;
 }
 
 .nav-links a:hover {
-    color: var(--text);
+    color: var(--accent);
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    background: var(--accent);
+    height: 2px;
 }
 
 .nav-toggle {
@@ -224,7 +226,7 @@ img {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 5rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards;
     animation-delay: 0.45s;
@@ -263,6 +265,44 @@ img {
 .btn-secondary:hover {
     border-color: var(--accent);
     color: var(--accent);
+}
+
+.hero-quicklinks {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 0.55s;
+}
+
+.hero-quicklinks .ql-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.hero-quicklinks a {
+    color: var(--text);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-hover);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-quicklinks a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.hero-quicklinks .ql-sep {
+    color: var(--text-dim);
 }
 
 .hero-metrics {
@@ -930,7 +970,13 @@ img {
     }
 
     .hero-cta {
+        margin-bottom: 1rem;
+    }
+
+    .hero-quicklinks {
         margin-bottom: 3rem;
+        font-size: 0.85rem;
+        gap: 0.5rem 1rem;
     }
 
     .services-grid {
