@@ -40,6 +40,8 @@ a:hover { text-decoration: underline; }
 .section-header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 32px; margin-bottom: 28px; gap: 24px; }
 .section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
 .section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.subsection-label { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink); padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+.subsection-label-more { margin-top: 64px; color: var(--muted); }
 
 /* Instagram Carousels - horizontal strip per campaign */
 .carousel-rows {
@@ -425,6 +427,9 @@ a:hover { text-decoration: underline; }
     <h2>Instagram Carousels</h2>
     <span class="section-count">Multi-slide social campaigns  &middot;  ChatPandas</span>
   </div>
+  <div class="subsection-label">Featured</div>
+  <div class="carousel-rows" id="featuredCarouselRows"></div>
+  <div class="subsection-label subsection-label-more">More Carousels</div>
   <div class="carousel-rows" id="carouselRows"></div>
 </section>
 
@@ -1427,11 +1432,24 @@ const carouselsData = [
 
 // =====================================================
 // Render carousels as horizontal strips with header
+// Split: Featured (12 highlights) + More (rest)
 // =====================================================
-(function() {
-  const container = document.getElementById('carouselRows');
-  if (!container) return;
-  carouselsData.forEach(c => {
+const featuredIds = [
+  'customer-always-right-debate',
+  'trouble-with-aht',
+  'dont-just-take-calls-build-contact',
+  'beyond-expectations-travis',
+  'chatgpt-future-cx',
+  'how-humans-beat-chatbots',
+  'cx-to-hx-shift',
+  'customers-love-language',
+  'swarming-vs-tiered-support-part-1',
+  'swarming-vs-tiered-support-part-2',
+  'customer-obsession-csat',
+  'email-open-rate-35'
+];
+
+function renderCarouselRow(c, container) {
     const row = document.createElement('article');
     row.className = 'carousel-row';
 
@@ -1504,6 +1522,26 @@ const carouselsData = [
 
     row.appendChild(wrap);
     container.appendChild(row);
+}
+
+(function() {
+  const featuredContainer = document.getElementById('featuredCarouselRows');
+  const moreContainer = document.getElementById('carouselRows');
+  if (!featuredContainer || !moreContainer) return;
+
+  // Build map for fast lookup, preserving featuredIds order
+  const dataMap = {};
+  carouselsData.forEach(c => { dataMap[c.id] = c; });
+
+  // Featured: in featuredIds order, only if found in carouselsData
+  featuredIds.forEach(id => {
+    if (dataMap[id]) renderCarouselRow(dataMap[id], featuredContainer);
+  });
+
+  // More: everything not in featuredIds, in original data order
+  const featuredSet = new Set(featuredIds);
+  carouselsData.forEach(c => {
+    if (!featuredSet.has(c.id)) renderCarouselRow(c, moreContainer);
   });
 })();
 
