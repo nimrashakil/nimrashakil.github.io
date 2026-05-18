@@ -303,10 +303,10 @@ a:hover { text-decoration: underline; }
 }
 
 /* Instagram Reels (vertical 9:16) */
-.ig-reel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 280px)); gap: 24px; }
+.ig-reel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); gap: 56px 64px; }
 .ig-reel-card { background: #EDE8DD; border: 1px solid var(--line); display: flex; flex-direction: column; transition: border-color 0.18s, box-shadow 0.18s; }
 .ig-reel-card:hover { border-color: var(--ink); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
-.ig-reel-video { aspect-ratio: 9 / 16; width: 100%; background: #000; display: block; border: 0; }
+.ig-reel-video { aspect-ratio: 9 / 16; width: 100%; background: #000; display: block; border: 0; object-fit: cover; }
 .ig-reel-placeholder {
   aspect-ratio: 9 / 16; background: var(--bg-soft);
   border-bottom: 1px dashed var(--line);
@@ -1603,25 +1603,29 @@ const reelsData = [
     id: 'jessica-cain-story',
     title: "Jessica Cain's Story",
     context: "For Breast Cancer Awareness Month, we built the campaign around Jessica Cain, a breast cancer survivor on the ChatPandas team. Her mission was to convey how early testing saves lives. The campaign was adopted globally across ChatPandas' international client network and became one of the most shared pieces of social work the company produced.",
-    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_3_eq3aac.mp4'
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_3_eq3aac.mp4',
+    posterUrl: 'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1779131075/IMG_1177_mqeyi3.webp'
   },
   {
     id: 'meet-ricky',
     title: "Meet Ricky",
     context: "A team-spotlight reel for ChatPandas' diversity and inclusion campaign, introducing Ricky, our Creative Director and a brand ambassador for his country in the Global Albinism Alliance. His story of overcoming challenges, owning his unique identity, and never giving up resonated globally and became one of the highest-engagement pieces in the campaign.",
-    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_4_fxhqen.mp4'
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060215/Instagram_4_fxhqen.mp4',
+    posterUrl: 'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1779131076/IMG_1317_nfefkj.jpg'
   },
   {
     id: 'imagine-a-world',
     title: "Imagine a World Without Customer Service",
     context: "A brand positioning reel for ChatPandas, opening with 'imagine a world without customer service' before delivering the brand promise: always there, day or night, rain or shine. The reel was the centerpiece of our 24/7 awareness campaign and became one of the most-shared pieces in the brand's content library.",
-    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060876/video_1778060953_qv6plt.mp4'
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778060876/video_1778060953_qv6plt.mp4',
+    posterUrl: 'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1779131495/IMG_2304_brn6xd.jpg'
   },
   {
     id: 'why-human-support-wins',
     title: "Why Human Support Wins",
     context: "An editorial reel I wrote for ChatPandas, animated by our in-house designer. The argument runs in three beats: chatbots are designed to replace humans, chatbots can lack the human touch, and when emotional connection matters, human support wins. The 'my grandma is dead' gag at the center turned into a running joke.",
-    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778061101/video_1778061257_m9lagh.mp4'
+    videoUrl: 'https://res.cloudinary.com/dkgrg5zsp/video/upload/v1778061101/video_1778061257_m9lagh.mp4',
+    posterUrl: 'https://res.cloudinary.com/dkgrg5zsp/image/upload/v1779131488/IMG_2303_bzzbzp.jpg'
   }
 ];
 
@@ -1633,7 +1637,7 @@ const reelsData = [
     card.className = 'ig-reel-card';
     const paragraphs = r.context.split('\n\n').map(p => `<p>${p}</p>`).join('');
     card.innerHTML = `
-      <video class="ig-reel-video" controls preload="metadata" playsinline>
+      <video class="ig-reel-video" controls preload="metadata" playsinline poster="${r.posterUrl}">
         <source src="${r.videoUrl}" type="video/mp4">
       </video>
       <div class="ig-reel-body">
