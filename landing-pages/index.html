@@ -3,44 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Pages | Nimra Shakil</title>
-<meta name="description" content="Landing pages across telehealth, weight loss, B2B SaaS, and corporate brand work. Hero copy, value propositions, conversion structure, and embedded forms across the ChatPandas, LiveChat Ltd, Minimal, and ParkingMD portfolios.">
+<title>Strategic Documents | Nimra Shakil</title>
+<meta name="description" content="Content strategy and workflow architecture documents produced across the brand portfolio. Competitor analysis, programmatic SEO, keyword research, PPC blueprints, and content automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
+/* ----- Typography & base ----- */
 :root {
-  --ink: #0F0F0F; --ink-soft: #1F1F1F;
-  --muted: #666666; --muted-soft: #8A8A8A;
-  --line: #E0E0E0; --line-soft: #EEEEEE;
-  --bg: #FFFFFF; --bg-soft: #FAFAFA; --badge-bg: #F2F2F2;
+  --ink: #0F0F0F;
+  --ink-soft: #1F1F1F;
+  --muted: #666666;
+  --muted-soft: #8A8A8A;
+  --line: #E0E0E0;
+  --line-soft: #EEEEEE;
+  --bg: #FFFFFF;
+  --bg-soft: #FAFAFA;
+  --badge-bg: #F2F2F2;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: Georgia, "Times New Roman", serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-soft); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 a { color: var(--ink); text-decoration: none; }
 a:hover { text-decoration: underline; }
-.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); padding: 18px 48px; }
-.site-header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.brand { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
-.brand-sub { font-family: var(--sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 2px; }
-.back-link { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ----- Sticky brand header ----- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 48px;
+}
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.brand {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.brand-sub {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.back-link {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 .back-link:hover { color: var(--ink); text-decoration: none; }
-.section-nav { position: sticky; top: 65px; z-index: 99; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 48px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.section-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 28px; font-family: var(--sans); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
-.section-nav a { color: var(--muted); padding: 4px 0; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
-.section-nav a:hover { color: var(--ink); text-decoration: none; }
-.section-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
-.hero { max-width: 1200px; margin: 0 auto; padding: 72px 48px 56px; }
-.hero-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 20px; }
-.hero h1 { font-family: var(--sans); font-size: 52px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 24px; max-width: 900px; }
-.hero-desc { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink-soft); max-width: 720px; }
-.section { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; scroll-margin-top: 130px; }
-.section-header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 32px; margin-bottom: 28px; gap: 24px; }
-.section-header h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
-.section-header .section-count { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+
+/* ----- Scroll-spy section tabs ----- */
+.section-nav {
+  position: sticky;
+  top: 65px;
+  z-index: 99;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 48px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.section-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.section-nav a {
+  color: var(--muted);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.section-nav a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+.section-nav a.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ----- Hero ----- */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 48px 56px;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--sans);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+.hero-desc {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 720px;
+}
+
+/* ----- Featured deck ----- */
+.featured-deck {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  padding: 0 48px;
+}
+.featured-deck-inner {
+  border: 1px solid var(--line);
+  background: #EDE8DD;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.featured-deck-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.featured-deck h2 {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.featured-deck p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  max-width: 640px;
+  margin-bottom: 12px;
+}
+.featured-deck-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.featured-deck-action {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+.btn-primary {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--ink);
+  color: #FFF;
+  padding: 14px 24px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: #000; color: #FFF; text-decoration: none; }
+.btn-secondary {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--ink);
+  padding: 13px 24px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-secondary:hover { background: var(--ink); color: #FFF; text-decoration: none; }
+
+/* ----- Section heading ----- */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 64px;
+  scroll-margin-top: 130px;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-bottom: 28px;
+  gap: 24px;
+}
+.section-header h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.section-header .section-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* ----- Doc cards grid ----- */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
 .doc-card {
   background: #EDE8DD;
   border: 1px solid var(--line);
@@ -64,19 +291,89 @@ a:hover { text-decoration: underline; }
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
-.doc-badge { font-family: var(--sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); background: var(--badge-bg); padding: 5px 9px; align-self: flex-start; margin-bottom: 18px; }
+.doc-badge {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  background: var(--badge-bg);
+  padding: 5px 9px;
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
 .doc-badge.medium { color: var(--ink-soft); }
 .doc-badge.light  { color: var(--muted); }
-.doc-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
-.doc-title { font-family: var(--sans); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.005em; }
-.doc-desc { font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; margin-bottom: 18px; }
-.doc-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; padding-top: 14px; border-top: 1px solid var(--line); margin-bottom: 14px; }
-.doc-link { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
-.doc-card:hover .doc-link { text-decoration: underline; }
-.site-footer { border-top: 1px solid var(--line); padding: 48px; margin-top: 48px; background: var(--bg-soft); }
-.site-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.doc-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+.doc-desc {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  flex-grow: 1;
+  margin-bottom: 18px;
+}
+.doc-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  margin-bottom: 14px;
+}
+.doc-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.doc-link:hover {
+  text-decoration: underline;
+}
+
+/* ----- Footer ----- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 48px;
+  margin-top: 48px;
+  background: var(--bg-soft);
+}
+.site-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--ink); }
+
+/* ----- Responsive ----- */
 @media (max-width: 768px) {
   .site-header { padding: 16px 24px; }
   .section-nav { padding: 10px 24px; }
@@ -84,6 +381,11 @@ a:hover { text-decoration: underline; }
   .hero { padding: 48px 24px 40px; }
   .hero h1 { font-size: 36px; }
   .hero-desc { font-size: 17px; }
+  .featured-deck { padding: 0 24px; margin-bottom: 48px; }
+  .featured-deck-inner {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
   .section { padding: 0 24px 48px; scroll-margin-top: 120px; }
   .section-header h2 { font-size: 20px; }
   .doc-grid { grid-template-columns: 1fr; gap: 18px; }
@@ -99,228 +401,76 @@ a:hover { text-decoration: underline; }
   <div class="site-header-inner">
     <div>
       <div class="brand">Nimra Shakil</div>
-      <div class="brand-sub">Landing Pages</div>
+      <div class="brand-sub">Strategic Documents</div>
     </div>
-    <a class="back-link" href="../writing.html">&larr; Writing</a>
+    <a class="back-link" href="../writing.html">← Writing</a>
   </div>
 </header>
 
 <nav class="section-nav" id="sectionNav">
   <div class="section-nav-inner">
-    <a href="#chatpandas">ChatPandas</a>
-    <a href="#livechatltd">LiveChat Ltd</a>
     <a href="#minimal">Minimal</a>
     <a href="#parkingmd">ParkingMD</a>
+    <a href="#wellnesswag">Wellness Wag</a>
+    <a href="#leafyrx">LeafyRX</a>
+    <a href="#leafy-rewards">Leafy Rewards</a>
+    <a href="#trt">TRT</a>
+    <a href="#operations">Operations</a>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">Conversion Copy</div>
-  <h1>Landing pages across the brand portfolio.</h1>
+  <div class="hero-eyebrow">Strategy &amp; Analysis</div>
+  <h1>Strategic documents across the brand portfolio.</h1>
   <p class="hero-desc">
-    Hero copy, value propositions, conversion structure, and embedded
-    forms written across the ChatPandas, LiveChat Ltd, Minimal, and
-    ParkingMD portfolios. Spans B2B SaaS, telehealth, weight loss, and
-    corporate brand work.
+    Content strategy and workflow architecture documents produced
+    across the brand portfolio, spanning competitor analysis,
+    programmatic SEO architecture, keyword research, PPC blueprints,
+    affiliate program strategy, and the sixteen-workflow AI content
+    automation stack that replaced a $1,500-per-month vendor toolchain.
   </p>
 </section>
 
-<!-- ChatPandas -->
-<section class="section" id="chatpandas">
-  <div class="section-header">
-    <h2>ChatPandas</h2>
-    <span class="section-count">B2B SaaS, Customer Experience</span>
+<!-- Featured: Portfolio Overview Deck -->
+<div class="featured-deck">
+  <div class="featured-deck-inner">
+    <div>
+      <div class="featured-deck-label">Portfolio Overview Deck</div>
+      <h2>SEO Portfolio Deck</h2>
+      <p>
+        A 10-page visual summary of SEO work across the brand
+        portfolio, covering traffic, keywords, site health, and workflow
+        automation. Includes Semrush screenshots and case-study data for
+        ParkingMD, LeafyMate, Minimal, WellnessWag, and LeafyDoc.
+      </p>
+      <div class="featured-deck-meta">7 sites  ·  315K+ combined monthly visits</div>
+    </div>
+    <div class="featured-deck-action">
+      <a class="btn-primary" href="pdfs/nimra-shakil-seo-portfolio.pdf" target="_blank" rel="noopener">View deck</a>
+      <a class="btn-secondary" href="pdfs/nimra-shakil-seo-portfolio.pdf" download>Download PDF</a>
+    </div>
   </div>
-  <div class="doc-grid">
-    <a class="doc-card" href="../chatpandas-sales.jpg" target="_blank" rel="noopener">
-      <span class="doc-badge">Sales Landing Page</span>
-      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Sales Landing Page</h3>
-      <p class="doc-desc">
-        A future-ready B2B revenue engine sales page covering lead
-        generation, cold calling, LinkedIn messaging, and precise
-        outreach. Hard-numbers results block, credibility row, and
-        closing proof block.
-      </p>
-      <div class="doc-meta">B2B sales services  &middot;  Full-page screenshot</div>
-      <span class="doc-link">View page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20260505232212/https://www.chatpandas.com/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Homepage</span>
-      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">ChatPandas Homepage</h3>
-      <p class="doc-desc">
-        Brand-level positioning for the B2B customer experience and
-        live chat outsourcing brand. Hero copy, services framing, and
-        trust signals across the homepage.
-      </p>
-      <div class="doc-meta">Homepage copy</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20260505232221/https://www.chatpandas.com/services" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Services Page</span>
-      <p class="doc-eyebrow">ChatPandas  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">ChatPandas Services</h3>
-      <p class="doc-desc">
-        Service offerings page covering managed live chat, technical
-        support, email support, and call centre operations across the
-        ChatPandas portfolio.
-      </p>
-      <div class="doc-meta">Service offerings</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-  </div>
-</section>
-
-<!-- LiveChat Ltd -->
-<section class="section" id="livechatltd">
-  <div class="section-header">
-    <h2>LiveChat Ltd</h2>
-    <span class="section-count">Parent Brand of ChatPandas</span>
-  </div>
-  <div class="doc-grid">
-    <a class="doc-card" href="https://web.archive.org/web/20250321032255/https://livechatltd.com/" target="_blank" rel="noopener">
-      <span class="doc-badge">Homepage</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Corporate Site</h3>
-      <p class="doc-desc">
-        Authored homepage copy and content positioning for the parent
-        brand of ChatPandas, covering corporate messaging and primary
-        marketing pages.
-      </p>
-      <div class="doc-meta">Corporate site</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20220121102532/https://livechatltd.com/services/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Services Hub</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Services Overview</h3>
-      <p class="doc-desc">
-        Category-level positioning across the full LiveChat Ltd
-        service portfolio, mapping managed live chat, email, call
-        centre, and technical support into a single browsable hub.
-      </p>
-      <div class="doc-meta">Services hub</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20211019223413/https://livechatltd.com/services/managed-live-chat/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Service Page</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Managed Live Chat</h3>
-      <p class="doc-desc">
-        Service page positioning LiveChat Ltd's flagship offering,
-        covering 24/7 chat coverage, agent training, and the workflow
-        that sat behind the ChatPandas operations team.
-      </p>
-      <div class="doc-meta">Service page</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20220121115722/https://livechatltd.com/services/call-centre-support/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Service Page</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Call Centre Support</h3>
-      <p class="doc-desc">
-        Service page covering inbound and outbound call centre support,
-        with copy structured around capacity, response time, and the
-        operational case for outsourcing voice support.
-      </p>
-      <div class="doc-meta">Service page</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20211019213750/https://livechatltd.com/services/technical-support/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Service Page</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Technical Support</h3>
-      <p class="doc-desc">
-        Service page on tiered technical support, framing escalation
-        protocols, agent specialisation, and the SLAs that mattered to
-        B2B customers buying technical-grade support.
-      </p>
-      <div class="doc-meta">Service page</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20220121111308/https://livechatltd.com/services/email-support/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Service Page</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Email Support</h3>
-      <p class="doc-desc">
-        Service page on managed email support, positioning ticket
-        backlog reduction, response-time SLAs, and the case for email
-        as the foundation of an omnichannel support stack.
-      </p>
-      <div class="doc-meta">Service page</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20220121111527/https://livechatltd.com/industries/" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Industries</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Industries Overview</h3>
-      <p class="doc-desc">
-        Audience-specific positioning across the verticals LiveChat
-        Ltd serves. Copy framed around the language and pain points of
-        each industry rather than generic service descriptions.
-      </p>
-      <div class="doc-meta">Audience segmentation</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20211019223842/https://livechatltd.com/pricing/" target="_blank" rel="noopener">
-      <span class="doc-badge light">Pricing &amp; Form</span>
-      <p class="doc-eyebrow">LiveChat Ltd  &middot;  B2B SaaS</p>
-      <h3 class="doc-title">Pricing Page</h3>
-      <p class="doc-desc">
-        Tier breakdowns, value justification, and form fields written
-        for B2B sales-cycle prospects. Conversion copy with an embedded
-        enquiry form.
-      </p>
-      <div class="doc-meta">Pricing &amp; conversion form</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-  </div>
-</section>
+</div>
 
 <!-- Minimal -->
 <section class="section" id="minimal">
   <div class="section-header">
     <h2>Minimal</h2>
-    <span class="section-count">Weight Loss Telehealth</span>
+    <span class="section-count"></span>
   </div>
   <div class="doc-grid">
-    <a class="doc-card" href="https://web.archive.org/web/20260417051220/https://joinminimal.com/" target="_blank" rel="noopener">
-      <span class="doc-badge">Homepage</span>
-      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
-      <h3 class="doc-title">Minimal Homepage</h3>
+    <a class="doc-card" href="pdfs/minimal-semaglutide-competitor-analysis.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge">Competitor Analysis</span>
+      <p class="doc-eyebrow">Minimal</p>
+      <h3 class="doc-title">Semaglutide Page Competitor Audit</h3>
       <p class="doc-desc">
-        Brand-level positioning for a semaglutide-focused weight loss
-        telehealth brand competing against Found, Calibrate, Sequence,
-        and Heally.
+        Competitive teardown of the Semaglutide page against Found,
+        Calibrate, Sequence, and Heally. Eight recommendation areas
+        spanning clinical evidence, testimonials, interactive tools, and
+        internal linking.
       </p>
-      <div class="doc-meta">Homepage copy</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20260505224841/https://joinminimal.com/medications/semaglutide" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Semaglutide</span>
-      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
-      <h3 class="doc-title">Semaglutide Treatment Page</h3>
-      <p class="doc-desc">
-        Direct landing page for Minimal's semaglutide offering. Hero
-        copy, clinical evidence framing, value props, and CTA structure
-        for the brand's flagship medication.
-      </p>
-      <div class="doc-meta">Medication landing page</div>
-      <span class="doc-link">View archived page &rarr;</span>
-    </a>
-    <a class="doc-card" href="https://web.archive.org/web/20260505224823/https://joinminimal.com/medications/tirzepatide" target="_blank" rel="noopener">
-      <span class="doc-badge medium">Tirzepatide</span>
-      <p class="doc-eyebrow">Minimal  &middot;  Weight Loss Telehealth</p>
-      <h3 class="doc-title">Tirzepatide Treatment Page</h3>
-      <p class="doc-desc">
-        Companion landing page for the tirzepatide treatment offering,
-        built on the same content architecture as the semaglutide page
-        to demonstrate the templated approach across the medication
-        portfolio.
-      </p>
-      <div class="doc-meta">Medication landing page</div>
-      <span class="doc-link">View archived page &rarr;</span>
+      <div class="doc-meta">+336% site visits  ·  5 pages</div>
+      <span class="doc-link">Read document →</span>
     </a>
   </div>
 </section>
@@ -329,20 +479,196 @@ a:hover { text-decoration: underline; }
 <section class="section" id="parkingmd">
   <div class="section-header">
     <h2>ParkingMD</h2>
-    <span class="section-count">Telehealth</span>
+    <span class="section-count"></span>
   </div>
   <div class="doc-grid">
-    <a class="doc-card" href="https://web.archive.org/web/20260505225045/https://parkingmd.com/" target="_blank" rel="noopener">
-      <span class="doc-badge">Homepage</span>
-      <p class="doc-eyebrow">ParkingMD  &middot;  Telehealth</p>
-      <h3 class="doc-title">ParkingMD Homepage</h3>
+    <a class="doc-card" href="pdfs/parkingmd-blog-topics-competitor-analysis.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">ParkingMD</p>
+      <h3 class="doc-title">Blog Topics and Competitor Analysis</h3>
       <p class="doc-desc">
-        Brand-level positioning for the handicap parking permit
-        telehealth service. Hero copy, value props, and conversion
-        structure for the portfolio's highest-traffic property.
+        Ten candidate topics evaluated against a per-topic competitor
+        audit of the five category actors, resolving into a hub-and-spoke
+        content architecture with nine production-ready outlines.
       </p>
-      <div class="doc-meta">Homepage copy</div>
-      <span class="doc-link">View archived page &rarr;</span>
+      <div class="doc-meta">10 topics evaluated  ·  5 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/parkingmd-campaign-structure.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge">Paid Search</span>
+      <p class="doc-eyebrow">ParkingMD</p>
+      <h3 class="doc-title">Google Ads Campaign Structure</h3>
+      <p class="doc-desc">
+        Google Ads Search blueprint organised around four intent-segmented
+        ad groups, eleven rotating headlines with dynamic keyword
+        insertion, and a Manual CPC to Target CPA $70 bidding progression.
+      </p>
+      <div class="doc-meta">4 ad groups  ·  $70 target CPA  ·  6 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Wellness Wag -->
+<section class="section" id="wellnesswag">
+  <div class="section-header">
+    <h2>Wellness Wag</h2>
+    <span class="section-count"></span>
+  </div>
+  <div class="doc-grid">
+    <a class="doc-card" href="pdfs/ww-content-analysis.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge medium">Content Audit</span>
+      <p class="doc-eyebrow">Wellness Wag</p>
+      <h3 class="doc-title">Content Analysis and Strategic Summary</h3>
+      <p class="doc-desc">
+        Portfolio-level audit of 1,145 published posts across 20 thematic
+        clusters, mapping the 6x competitive volume lead and sequencing a
+        three-phase optimisation roadmap against the ESA and pet care
+        vertical.
+      </p>
+      <div class="doc-meta">1,145 posts audited  ·  7 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/ww-affiliate-program-growth-plan.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge">Program Strategy</span>
+      <p class="doc-eyebrow">Wellness Wag</p>
+      <h3 class="doc-title">Affiliate Program Growth Plan</h3>
+      <p class="doc-desc">
+        Growth plan synthesised from a 35-page cross-functional brainstorm
+        spanning four contributors and four working channels, resolved
+        into a three-phase execution roadmap organised around the
+        enablement-over-recruitment insight.
+      </p>
+      <div class="doc-meta">30+ ideas synthesised  ·  7 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/affiliate-training-workshops.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge light">Enablement Strategy</span>
+      <p class="doc-eyebrow">Wellness Wag + Minimal</p>
+      <h3 class="doc-title">Affiliate Training and Development</h3>
+      <p class="doc-desc">
+        Cross-brand enablement layer for the broader affiliate program
+        strategy, built on a three-by-three-by-three framework of formats,
+        topic areas, and KPI dimensions with partner-led content sourcing.
+      </p>
+      <div class="doc-meta">Cross-brand framework  ·  3 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+  </div>
+</section>
+
+<!-- LeafyRX -->
+<section class="section" id="leafyrx">
+  <div class="section-header">
+    <h2>LeafyRX</h2>
+    <span class="section-count"></span>
+  </div>
+  <div class="doc-grid">
+    <a class="doc-card" href="pdfs/leafyrx-patient-education-guide.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">LeafyRX</p>
+      <h3 class="doc-title">Patient Education Guide Architecture</h3>
+      <p class="doc-desc">
+        YMYL-grade content architecture for a medical cannabis patient
+        education guide. Fourteen sections sequenced against the
+        post-certification patient journey, anchored by more than twenty
+        peer-reviewed clinical citations.
+      </p>
+      <div class="doc-meta">14 sections  ·  20+ citations  ·  14 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Leafy Rewards -->
+<section class="section" id="leafy-rewards">
+  <div class="section-header">
+    <h2>Leafy Rewards</h2>
+    <span class="section-count"></span>
+  </div>
+  <div class="doc-grid">
+    <a class="doc-card" href="pdfs/keyword-gap-analysis.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge">Keyword Research</span>
+      <p class="doc-eyebrow">Leafy Rewards</p>
+      <h3 class="doc-title">Keyword Gap Analysis</h3>
+      <p class="doc-desc">
+        Competitive keyword gap analysis against Weedmaps, Leafly, and
+        PotGuide. 14,804 keywords analysed across nine thematic clusters
+        with topical opportunity scoring and priority grouping.
+      </p>
+      <div class="doc-meta">14,804 keywords  ·  9 clusters  ·  4 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/cannabis-legalization-pages-architecture.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge medium">Programmatic SEO</span>
+      <p class="doc-eyebrow">Leafy Rewards</p>
+      <h3 class="doc-title">Cannabis Legalization Pages Architecture</h3>
+      <p class="doc-desc">
+        Three-tier programmatic SEO architecture interlocking a national
+        summary hub, fifty state-specific pages, and condition-specific
+        intersections against the location-qualified search behaviour the
+        category rewards.
+      </p>
+      <div class="doc-meta">3 tiers  ·  50 states  ·  7 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+  </div>
+</section>
+
+<!-- TRT -->
+<section class="section" id="trt">
+  <div class="section-header">
+    <h2>TRT Telehealth</h2>
+    <span class="section-count"></span>
+  </div>
+  <div class="doc-grid">
+    <a class="doc-card" href="pdfs/trt-blog-series-outline.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge medium">Content Architecture</span>
+      <p class="doc-eyebrow">TRT Telehealth</p>
+      <h3 class="doc-title">TRT Blog Series Outline</h3>
+      <p class="doc-desc">
+        Two-part content series architecture pairing a four-pillar
+        educational foundation track with a first-person weekly journey
+        format. Designed to occupy the middle ground between clinical
+        explainers and forum anecdotes.
+      </p>
+      <div class="doc-meta">2 parts  ·  4 pillar pieces  ·  5 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Cross Even Operations -->
+<section class="section" id="operations">
+  <div class="section-header">
+    <h2>Cross Even Operations</h2>
+    <span class="section-count"></span>
+  </div>
+  <div class="doc-grid">
+    <a class="doc-card" href="pdfs/ai-content-production.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge">Workflow Architecture</span>
+      <p class="doc-eyebrow">Cross Even Operations</p>
+      <h3 class="doc-title">AI Content Production System</h3>
+      <p class="doc-desc">
+        Custom n8n-powered content automation architecture replacing a
+        $1,500-per-month vendor stack. Sixteen workflows, seven
+        integrations, and a five-stage human approval layer across the brand
+        portfolio, delivering a 75% cost reduction.
+      </p>
+      <div class="doc-meta">16 workflows  ·  75% cost reduction  ·  11 pages</div>
+      <span class="doc-link">Read document →</span>
+    </a>
+    <a class="doc-card" href="pdfs/wp-development-workflow-standards.pdf" target="_blank" rel="noopener">
+      <span class="doc-badge light">Development Operations</span>
+      <p class="doc-eyebrow">Cross Even Operations</p>
+      <h3 class="doc-title">WordPress Development Workflow Standards</h3>
+      <p class="doc-desc">
+        Cross-functional operations standard resolving six recurring
+        WordPress development issues across the brand portfolio into
+        reproducible migration and code-location conventions.
+      </p>
+      <div class="doc-meta">6 issue areas  ·  7 sites  ·  4 pages</div>
+      <span class="doc-link">Read document →</span>
     </a>
   </div>
 </section>
@@ -350,34 +676,39 @@ a:hover { text-decoration: underline; }
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div>
-      <strong>Nimra Shakil</strong>  &middot;  SEO Content Strategist  &middot;  Lahore, Pakistan
+      <strong>Nimra Shakil</strong>  ·  SEO Content Strategist  ·  Lahore, Pakistan
     </div>
     <div>
       <a href="https://linkedin.com/in/nimra-shakil-1armin" target="_blank" rel="noopener">LinkedIn</a>
-      &nbsp;&middot;&nbsp;
+      &nbsp;·&nbsp;
       <a href="mailto:nimra.shakil@gmail.com">Email</a>
-      &nbsp;&middot;&nbsp;
+      &nbsp;·&nbsp;
       <a href="../writing.html">Back to Writing</a>
     </div>
   </div>
 </footer>
 
 <script>
+// Scroll-spy for section navigation
 (function() {
   const navLinks = document.querySelectorAll('.section-nav a');
   const sections = Array.from(navLinks).map(link => {
     const id = link.getAttribute('href').slice(1);
     return { link, section: document.getElementById(id) };
   }).filter(item => item.section);
+
   function updateActive() {
     const scrollPos = window.scrollY + 200;
     let currentActive = sections[0];
     for (const item of sections) {
-      if (item.section.offsetTop <= scrollPos) currentActive = item;
+      if (item.section.offsetTop <= scrollPos) {
+        currentActive = item;
+      }
     }
     navLinks.forEach(link => link.classList.remove('active'));
     if (currentActive) currentActive.link.classList.add('active');
   }
+
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
 })();
