@@ -37,11 +37,28 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <div class="page-label">About</div>
-        <h1>Nimra Shakil</h1>
-        <p>SEO Content Strategist with 8+ years building content systems that drive organic growth at scale.</p>
-        <p style="margin-top: 1.25rem;"><a href="Nimra-Shakil-Resume.pdf" download class="btn btn-secondary" style="display: inline-flex;">Download CV (PDF)</a></p>
+        <div class="about-header-flex">
+            <div class="about-header-text">
+                <div class="page-label">About</div>
+                <h1>Nimra Shakil</h1>
+                <p>SEO Content Strategist with 8+ years building content systems that drive organic growth at scale.</p>
+                <p style="margin-top: 1.25rem;"><a href="Nimra-Shakil-Resume.pdf" download class="btn btn-secondary" style="display: inline-flex;">Download CV (PDF)</a></p>
+            </div>
+            <div class="about-header-photo">
+                <img src="nimra.jpg" alt="Nimra Shakil" loading="lazy">
+            </div>
+        </div>
     </header>
+    <style>
+        .about-header-flex { display: flex; align-items: center; gap: 3.5rem; flex-wrap: wrap; }
+        .about-header-text { flex: 1; min-width: 300px; }
+        .about-header-photo { flex-shrink: 0; }
+        .about-header-photo img { width: 320px; max-width: 100%; height: auto; display: block; }
+        @media (max-width: 768px) {
+            .about-header-flex { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
+            .about-header-photo img { width: 240px; }
+        }
+    </style>
 
     <!-- About Content -->
     <section class="about-content">
