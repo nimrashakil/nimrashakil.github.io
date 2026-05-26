@@ -50,13 +50,17 @@
         </div>
     </header>
     <style>
-        .about-header-flex { display: flex; align-items: center; gap: 3.5rem; flex-wrap: wrap; }
+        .about-header-flex { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
         .about-header-text { flex: 1; min-width: 300px; }
         .about-header-photo { flex-shrink: 0; }
-        .about-header-photo img { width: 320px; max-width: 100%; height: auto; display: block; }
+        .about-header-photo img {
+            width: 330px; max-width: 100%; height: auto; display: block;
+            -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+        }
         @media (max-width: 768px) {
-            .about-header-flex { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
-            .about-header-photo img { width: 240px; }
+            .about-header-flex { flex-direction: column-reverse; align-items: center; gap: 1.5rem; }
+            .about-header-photo img { width: 260px; }
         }
     </style>
 
