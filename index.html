@@ -23,6 +23,41 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hero two-column layout: text left, visual right, metrics full-width below */
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 3.5rem;
+            width: 100%;
+        }
+        .hero-top .hero-content {
+            flex: 1 1 56%;
+            min-width: 0;
+        }
+        .hero-visual {
+            flex: 0 0 38%;
+            max-width: 460px;
+        }
+        .hero-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+        }
+        @media (max-width: 960px) {
+            .hero-top {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: stretch;
+            }
+            .hero-visual {
+                flex: 1 1 auto;
+                max-width: 100%;
+                order: 2;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -50,23 +85,28 @@
 
     <!-- Hero -->
     <header class="hero">
-        <div class="hero-content">
-            <div class="hero-label">SEO Content Strategist</div>
-            <h1 class="hero-title">
-                I build content systems<br>
-                that drive <em>measurable</em><br>
-                organic growth.
-            </h1>
-            <p class="hero-subtitle">
-                8+ years of senior content strategy across B2B SaaS, weight management,
-                telehealth, cannabis, and pet wellness. Frameworks that rank, convert, and
-                scale. SEO, GEO, and AEO programs for a multi-brand portfolio plus a
-                16-workflow automation stack that cut content production costs 75%.
-            </p>
-            <div class="hero-cta">
-                <a href="writing.html" class="btn btn-primary">View Writing &amp; Strategy</a>
-                <a href="work.html" class="btn btn-secondary">View Case Studies</a>
-                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+        <div class="hero-top">
+            <div class="hero-content">
+                <div class="hero-label">SEO Content Strategist</div>
+                <h1 class="hero-title">
+                    I build content systems<br>
+                    that drive <em>measurable</em><br>
+                    organic growth.
+                </h1>
+                <p class="hero-subtitle">
+                    8+ years of senior content strategy across B2B SaaS, weight management,
+                    telehealth, cannabis, and pet wellness. Frameworks that rank, convert, and
+                    scale. SEO, GEO, and AEO programs for a multi-brand portfolio plus a
+                    16-workflow automation stack that cut content production costs 75%.
+                </p>
+                <div class="hero-cta">
+                    <a href="writing.html" class="btn btn-primary">View Writing &amp; Strategy</a>
+                    <a href="work.html" class="btn btn-secondary">View Case Studies</a>
+                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="preview.webp" alt="My everyday growth stack: Semrush, Search Console, GA4, WordPress, n8n, and AI search tools driving organic results.">
             </div>
         </div>
         <div class="hero-metrics">
