@@ -114,14 +114,14 @@ em, i { font-style: normal; }
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 1px solid var(--gold);
-  background: var(--gold);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
   padding: 11px 20px;
   border-radius: 999px;
-  color: #fff;
-  transition: background .2s, border-color .2s;
+  color: #e8eaed;
+  transition: background .2s, border-color .2s, color .2s;
 }
-.nav-cta:hover { background: var(--gold-2); border-color: var(--gold-2); }
+.nav-cta:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.28); color: #fff; }
 
 /* ---- Section frame ---- */
 .section {
@@ -1770,11 +1770,11 @@ function Nav() {
       </a>
       <div className="nav-links">
         <a href="index.html" className="active">Home</a>
-        <a href="work.html">Work</a>
-        <a href="writing.html">Writing</a>
+        <a href="work.html">Case Studies</a>
+        <a href="writing.html">Writing &amp; Strategy</a>
         <a href="about.html">About</a>
       </div>
-      <a href="mailto:nimra.shakil@gmail.com" className="nav-cta">Get in touch →</a>
+      <a href="mailto:nimra.shakil@gmail.com" className="nav-cta">Contact →</a>
     </nav>
   );
 }
@@ -2179,8 +2179,8 @@ function Footer() {
         <div className="footer-col">
           <h5>Pages</h5>
           <ul className="footer-list">
-            <li><a href="work.html">Work</a></li>
-            <li><a href="writing.html">Writing</a></li>
+            <li><a href="work.html">Case Studies</a></li>
+            <li><a href="writing.html">Writing &amp; Strategy</a></li>
             <li><a href="about.html">About</a></li>
           </ul>
         </div>
