@@ -2555,18 +2555,10 @@ em, i { font-style: normal; }
 }
 
 
-/* ===== Home case cards are display-only (non-clickable) ===== */
+
+
+/* case cards: keep hover, not clickable */
 .case { cursor: default; }
-.case:hover {
-  transform: none;
-  box-shadow: none;
-  background: transparent;
-}
-.case:hover h3,
-.case:hover p,
-.case:hover .case-tag,
-.case:hover .case-stats { color: inherit; border-color: inherit; }
-.case:hover .case-stats span::before { background: var(--blue, #1a73e8); }
 
     </style>
     <style>
