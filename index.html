@@ -2554,6 +2554,20 @@ em, i { font-style: normal; }
   .nav-cta::after { content: "✉"; font-size: 15px; }
 }
 
+
+/* ===== Home case cards are display-only (non-clickable) ===== */
+.case { cursor: default; }
+.case:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+.case:hover h3,
+.case:hover p,
+.case:hover .case-tag,
+.case:hover .case-stats { color: inherit; border-color: inherit; }
+.case:hover .case-stats span::before { background: var(--blue, #1a73e8); }
+
     </style>
     <style>
       html, body { margin: 0; padding: 0; background: var(--bg); }
@@ -2672,14 +2686,14 @@ function Cases() {
       </div>
       <div className="cases">
         {items.map((it, i) => (
-          <a key={i} href={`work.html#${it.id}`} className="case">
+          <div key={i} className="case">
             <div className="case-tag">{it.tag}</div>
             <h3>{it.title}</h3>
             <p>{it.body}</p>
             <div className="case-stats">
               {it.stats.map((s, j) => <span key={j}>{s}</span>)}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
