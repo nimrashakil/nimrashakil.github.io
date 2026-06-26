@@ -373,99 +373,152 @@
       color: rgba(255,255,255,0.3);
     }
 
-    /* ── FOOTER (matches site) ── */
+    /* ── FOOTER | exact match to styles.css ── */
     .footer {
+      padding: 64px 64px 48px;
+      position: relative;
+      z-index: 2;
       background: #18191c;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 64px 64px 40px;
-      position: relative; overflow: hidden;
+      border-top: 0;
+      overflow: hidden;
     }
     .footer-aurora {
-      position: absolute; bottom: 0; left: -10%; right: -10%;
-      height: 220px;
-      background: radial-gradient(ellipse 80% 100% at 50% 100%,
-        rgba(26,115,232,0.14) 0%, transparent 70%);
-      pointer-events: none;
+      position: absolute;
+      top: -40%; left: 50%;
+      width: 120%; height: 150%;
+      transform: translateX(-50%);
+      z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(38% 42% at 22% 18%, rgba(66,133,244,0.20), transparent 70%),
+        radial-gradient(34% 40% at 82% 30%, rgba(26,115,232,0.16), transparent 72%);
+      filter: blur(14px);
+      animation: footerAurora 16s ease-in-out infinite alternate;
+    }
+    @keyframes footerAurora {
+      0%   { transform: translateX(-52%) translateY(0) scale(1); opacity: 0.85; }
+      100% { transform: translateX(-48%) translateY(22px) scale(1.08); opacity: 1; }
     }
     .footer-grid {
-      position: relative; z-index: 1;
-      max-width: 1200px; margin: 0 auto;
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      grid-template-columns: 1.7fr 1fr 1fr 1.15fr;
+      gap: 40px 56px;
+      align-items: start;
+      position: relative; z-index: 1;
     }
-    .footer-wordmark {
+    .footer-brand { padding-right: 24px; }
+    .footer h5, .footer-col h5 {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #9aa0a6;
+      margin: 0 0 20px;
+      font-weight: 600;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer .wordmark {
       font-family: var(--serif);
-      font-size: 26px; color: #fff;
-      margin-bottom: 14px;
+      font-style: normal;
+      font-size: 36px;
       letter-spacing: -0.01em;
-      min-height: 32px;
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+      min-height: 1.1em;
+      color: #fff;
     }
-    .footer-wordmark .wm-caret {
+    .wm-text { color: #fff; }
+    .wm-caret {
       display: inline-block;
-      width: 3px; height: 0.82em;
-      background: var(--gold);
+      width: 2px;
+      height: 0.92em;
       margin-left: 3px;
-      vertical-align: baseline;
-      transform: translateY(0.04em);
-      animation: wmBlink 0.8s steps(1) infinite;
+      background: var(--gold);
+      transform: translateY(0.06em);
+      animation: caretBlink 0.85s steps(1) infinite;
     }
-    .footer-wordmark .wm-caret.hide { animation: none; opacity: 0; }
-    @keyframes wmBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .wm-caret.hide { opacity: 0; animation: none; }
+    @keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .footer-bio {
-      font-size: 14px; line-height: 1.65;
-      color: rgba(255,255,255,0.45); max-width: 300px;
-      margin-bottom: 20px;
+      margin-top: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #c4c7cb;
+      max-width: 340px;
     }
     .footer-clock {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; color: rgba(255,255,255,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      margin-top: 22px;
       font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #9aa0a6;
     }
-    .clock-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #34a853;
-      box-shadow: 0 0 0 0 rgba(52,168,83,0.4);
-      animation: clockPulse 2s infinite;
+    .footer-clock .clock-time { color: #e8eaed; font-weight: 500; }
+    .footer-clock .clock-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #34c759;
+      box-shadow: 0 0 0 2px rgba(52,199,89,0.35);
+      animation: clockDotPulse 2s ease-out infinite;
     }
-    @keyframes clockPulse {
-      0% { box-shadow: 0 0 0 0 rgba(52,168,83,0.4); }
-      70% { box-shadow: 0 0 0 6px rgba(52,168,83,0); }
-      100% { box-shadow: 0 0 0 0 rgba(52,168,83,0); }
+    @keyframes clockDotPulse {
+      0%   { box-shadow: 0 0 0 0px rgba(52,199,89,0.7); }
+      60%  { box-shadow: 0 0 0 5px rgba(52,199,89,0); }
+      100% { box-shadow: 0 0 0 0px rgba(52,199,89,0); }
     }
-    .footer-col h5 {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; color: rgba(255,255,255,0.3);
-      margin-bottom: 16px;
-    }
-    .footer-list {
-      list-style: none; display: flex; flex-direction: column; gap: 10px;
-    }
-    .footer-list a {
-      font-size: 14px; color: rgba(255,255,255,0.55);
-      transition: color .15s;
-    }
-    .footer-list a:hover { color: #fff; }
-    .now-dot {
-      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--gold); margin-right: 8px; flex-shrink: 0;
-    }
-    .now-dot.soft { background: rgba(255,255,255,0.25); }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .footer-list a, .footer-list li { font-size: 14px; color: #c4c7cb; line-height: 1.45; }
+    .footer-list a:hover { color: var(--gold-2); }
     .footer-now li {
-      display: flex; align-items: center;
-      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.45;
+      display: flex; align-items: flex-start; gap: 10px; max-width: 230px;
+    }
+    .footer-now .now-dot {
+      flex: 0 0 auto;
+      width: 8px; height: 8px;
+      margin-top: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px var(--gold-soft);
+      animation: nowPulse 2.4s ease-in-out infinite;
+    }
+    .footer-now .now-dot.soft {
+      background: #5f6368; box-shadow: none; animation: none;
+    }
+    @keyframes nowPulse {
+      0%, 100% { box-shadow: 0 0 0 4px var(--gold-soft); }
+      50% { box-shadow: 0 0 0 8px rgba(26,115,232,0.05); }
     }
     .footer-bottom {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      font-size: 12px;
+      color: #9aa0a6;
+      letter-spacing: 0.04em;
       position: relative; z-index: 1;
-      max-width: 1200px; margin: 28px auto 0;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 12px; color: rgba(255,255,255,0.28);
     }
-    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color .15s; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-    .footer-credit .dim { opacity: 0.5; }
+    .footer-bottom > span:first-child { white-space: nowrap; }
+    .footer-credit { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 5px; white-space: nowrap; }
+    .footer-credit .dim { opacity: 0.62; }
+    .footer-credit b { font-weight: 600; color: #e8eaed; }
+    .credit-arrow {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 700;
+      animation: creditArrow 1.8s ease-in-out infinite;
+    }
+    @keyframes creditArrow {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
@@ -690,12 +743,14 @@
 <footer class="footer">
   <div class="footer-aurora"></div>
   <div class="footer-grid">
-    <div>
-      <div class="footer-wordmark" id="footerWordmark"><span id="wmText"></span><span class="wm-caret" id="wmCaret"></span></div>
+    <div class="footer-brand">
+      <div class="wordmark" aria-label="Nimra Shakil">
+        <span class="wm-text" id="wmText"></span><span class="wm-caret" id="wmCaret"></span>
+      </div>
       <p class="footer-bio">Senior content strategist based in Lahore, Pakistan. I build search and content systems that turn organic into a reliable growth channel.</p>
       <div class="footer-clock">
         <span class="clock-dot"></span>
-        <span id="lahoreClock">Lahore, Pakistan</span>
+        Lahore, Pakistan &middot; <span class="clock-time" id="lahoreClock"></span> local
       </div>
     </div>
     <div class="footer-col">
@@ -725,8 +780,8 @@
   <div class="footer-bottom">
     <span>© 2026 Nimra Shakil</span>
     <span class="footer-credit">
-      Built with care <span class="dim">(and far too much coffee)</span> in <b style="color:rgba(255,255,255,0.5)">Lahore</b>
-      <span style="margin:0 4px">→</span> <b style="color:rgba(255,255,255,0.5)">working worldwide</b>
+      Built with care <span class="dim">(and far too much coffee)</span> in <b>Lahore</b>
+      <span class="credit-arrow">→</span> <b>working worldwide</b>
       <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-left:5px;">
         <circle cx="12" cy="12" r="9.5" stroke="#4285f4" stroke-width="1.5" fill="none"/>
         <ellipse cx="12" cy="12" rx="9.5" ry="3.6" stroke="#4285f4" stroke-width="1" fill="none" stroke-dasharray="2 1.5"/>
@@ -768,7 +823,8 @@
       const t = new Date().toLocaleTimeString("en-US", {
         timeZone: "Asia/Karachi", hour: "numeric", minute: "2-digit", hour12: true
       });
-      document.getElementById("lahoreClock").textContent = "Lahore, Pakistan · " + t + " local";
+      const el = document.getElementById('lahoreClock');
+      if (el) el.textContent = t;
     } catch(e) {}
   }
   updateClock();
