@@ -536,7 +536,17 @@
     }
     @media (max-width: 600px) {
       .footer-grid { grid-template-columns: 1fr; }
+      /* stack section header: title/desc full-width, count below */
+      .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .section-count { white-space: normal; }
+      .section-header h2 { font-size: 30px; }
     }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    .pullquote, .pullquote-inner, .section, .scroll-nav-inner { max-width: 100%; }
   </style>
 </head>
 <body>
